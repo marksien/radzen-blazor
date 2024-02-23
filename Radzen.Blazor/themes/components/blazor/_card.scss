@@ -19,6 +19,7 @@ $card-heading-margin-bottom: 0.5rem !default;
 }
 
  .rz-card {
+  box-sizing: border-box;
   padding: var(--rz-card-padding);
   border-radius: var(--rz-card-border-radius);
   background-color: var(--rz-card-background-color);

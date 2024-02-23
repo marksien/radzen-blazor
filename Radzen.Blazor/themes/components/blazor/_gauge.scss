@@ -20,6 +20,7 @@ $gauge-arc-value-color: var(--rz-secondary) !default;
 
 .rz-gauge,
 .rz-arc-gauge {
+  box-sizing: border-box;
   position: relative;
   display: inline-block;
   width: 300px;

@@ -58,11 +58,13 @@ $rz-offset-map: map-merge(
 
 // Stack
 .rz-stack {
+  box-sizing: border-box;
   gap: var(--rz-gap);
 }
 
 // Rows
 .rz-row {
+  box-sizing: border-box;
   flex-wrap: wrap;
   gap: var(--rz-gap);
   row-gap: var(--rz-row-gap);
@@ -100,7 +102,7 @@ $rz-offset-map: map-merge(
 // Offsets
 @each $offset, $offset-margin in $rz-offset-map {
   .rz-offset-#{$offset} {
-    margin-left: #{$offset-margin};
+    margin-inline-start: #{$offset-margin};
   }
 }
 
@@ -109,7 +111,7 @@ $rz-offset-map: map-merge(
   @media (min-width: #{$breakpoint-value}) {
     @each $offset, $offset-margin in $rz-offset-map {
       .rz-offset-#{$breakpoint}-#{$offset} {
-        margin-left: #{$offset-margin};
+        margin-inline-start: #{$offset-margin};
       }
     }
   }

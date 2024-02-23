@@ -33,6 +33,7 @@ $editor-focus-outline-offset: calc(-1 * var(--rz-outline-width)) !default;
 }
 
 .rz-html-editor {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   border-radius: var(--rz-editor-border-radius);

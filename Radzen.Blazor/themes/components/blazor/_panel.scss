@@ -35,12 +35,13 @@ $panel-shadow: none !default;
 }
 
 .rz-panel {
-  background: var(--rz-panel-background-color);
-  border-radius: var(--rz-panel-border-radius);
-  padding: var(--rz-panel-padding);
-  box-shadow: var(--rz-panel-shadow);
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  padding: var(--rz-panel-padding);
+  background: var(--rz-panel-background-color);
+  border-radius: var(--rz-panel-border-radius);
+  box-shadow: var(--rz-panel-shadow);
 }
 
 .rz-panel-titlebar {

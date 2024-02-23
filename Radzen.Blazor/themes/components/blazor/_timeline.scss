@@ -51,6 +51,7 @@ $timeline-point-sizes: map-merge(
 );
 
 .rz-timeline {
+  box-sizing: border-box;
   display: flex;
 
   // Orientation.Vertical

@@ -1,7 +1,8 @@
 $input-font-size: var(--rz-body-font-size) !default;
 $input-height: 2.25rem !default;
 $input-line-height: var(--rz-body-line-height) !default;
-$input-padding: 0.4375rem !default;
+$input-padding-block: 0.4375rem !default;
+$input-padding-inline: 0.4375rem !default;
 $input-value-color: var(--rz-text-color) !default;
 $input-placeholder-color: var(--rz-text-tertiary-color) !default;
 $input-background-color: var(--rz-base-background-color) !default;
@@ -32,7 +33,8 @@ $input-transition: var(--rz-transition-all), width 0, height 0 !default;
   --rz-input-font-size: #{$input-font-size};
   --rz-input-height: #{$input-height};
   --rz-input-line-height: #{$input-line-height};
-  --rz-input-padding: #{$input-padding};
+  --rz-input-padding-block: #{$input-padding-block};
+  --rz-input-padding-inline: #{$input-padding-inline};
   --rz-input-value-color: #{$input-value-color};
   --rz-input-placeholder-color: #{$input-placeholder-color};
   --rz-input-background-color: #{$input-background-color};
@@ -100,10 +102,12 @@ input {
 
 %input-base {
   @extend %input-no-padding;
-  padding: var(--rz-input-padding);
+  padding-block: var(--rz-input-padding-block);
+  padding-inline: var(--rz-input-padding-inline);
 }
 
 %input-no-padding {
+  box-sizing: border-box;
   border: var(--rz-input-border);
   border-radius: var(--rz-input-border-radius);
   box-shadow: var(--rz-input-shadow);

@@ -15,6 +15,7 @@ $splitter-bar-hover-opacity: 1 !default;
 }
 
 .rz-splitter {
+    box-sizing: border-box;
     display: flex;
     flex-wrap: nowrap;
     width: 100%;
@@ -36,7 +37,7 @@ $splitter-bar-hover-opacity: 1 !default;
             display: table;
 
             &:before {
-                font-family: 'Material Icons';
+                font-family: var(--rz-icon-font-family);
                 line-height: normal;
                 display: table-cell;
             }
@@ -55,7 +56,7 @@ $splitter-bar-hover-opacity: 1 !default;
             display: table;
 
             &:before {
-                font-family: 'Material Icons';
+                font-family: var(--rz-icon-font-family);
                 line-height: normal;
                 display: table-cell;
             }

@@ -47,6 +47,7 @@ $upload-button-background-color: var(--rz-primary) !default;
 }
 
 .rz-fileupload {
+  box-sizing: border-box;
   display: inline-block;
 
   .rz-button {

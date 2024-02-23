@@ -13,6 +13,7 @@ $gravatar-box-shadow: none !default;
 }
 
 .rz-gravatar {
+  box-sizing: border-box;
   width: var(--rz-gravatar-width);
   height: var(--rz-gravatar-height);
   display: inline-block;

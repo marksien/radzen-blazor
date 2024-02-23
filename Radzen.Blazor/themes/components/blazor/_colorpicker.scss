@@ -9,9 +9,9 @@ $colorpicker-focus-outline-offset: var(--rz-outline-offset) !default;
 
 $colorpicker-value-border-radius: var(--rz-border-radius) !default;
 
+$colorpicker-items-gap: 0.5rem !default;
 $colorpicker-item-size: 1.25rem !default;
 $colorpicker-item-border-radius: var(--rz-border-radius) !default;
-$colorpicker-item-margin: 0.25rem !default;
 $colorpicker-item-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.25) 0px 0px 4px inset !default;
 
 $colorpicker-handle-size: 12px !default;
@@ -38,9 +38,9 @@ $colorpicker-input-labels-color: var(--rz-text-tertiary-color) !default;
 
   --rz-colorpicker-value-border-radius: #{$colorpicker-value-border-radius};
 
+  --rz-colorpicker-items-gap: #{$colorpicker-items-gap};
   --rz-colorpicker-item-size: #{$colorpicker-item-size};
   --rz-colorpicker-item-border-radius: #{$colorpicker-item-border-radius};
-  --rz-colorpicker-item-margin: #{$colorpicker-item-margin};
   --rz-colorpicker-item-shadow: #{$colorpicker-item-shadow};
 
   --rz-colorpicker-handle-size: #{$colorpicker-handle-size};
@@ -140,7 +140,7 @@ button.rz-colorpicker-trigger {
   right: 0;
   bottom: 0;
   border-radius: var(--rz-border-radius);
-  border-top-left-radius: calc(var(--rz-border-radius) - 1px);
+  border-start-start-radius: calc(var(--rz-border-radius) - 1px);
 }
 
 .rz-saturation-black {
@@ -227,7 +227,7 @@ button.rz-colorpicker-trigger {
 
 .rz-hue-and-alpha {
   flex: 1;
-  padding-right: 8px;
+  padding-inline-end: 8px;
 }
 
 .rz-alpha-picker,
@@ -261,6 +261,7 @@ button.rz-colorpicker-trigger {
 
 .rz-colorpicker-rgba {
   display: flex;
+  gap: 4px;
 }
 
 .rz-color-box {
@@ -272,22 +273,18 @@ button.rz-colorpicker-trigger {
   font-size: 0.75rem;
   text-transform: uppercase;
 
-  &:not(:last-child) {
-    margin-right: 4px;
-  }
-
   .rz-textbox {
     width: 80px;
-    margin-right: 4px;
+    margin-inline-end: 4px;
     padding: var(--rz-colorpicker-hex-input-padding);
     height: var(--rz-colorpicker-hex-input-height);
   }
 
-  .rz-spinner {
+  .rz-numeric {
     padding: var(--rz-colorpicker-rgba-input-padding);
     height: var(--rz-colorpicker-rgba-input-height);
 
-    .rz-spinner-input {
+    .rz-numeric-input {
       padding: 0;
       outline: none;
     }
@@ -315,15 +312,13 @@ button.rz-colorpicker-trigger {
 .rz-colorpicker-colors {
   display: flex;
   flex-wrap: wrap;
-  margin-left: -4px;
-  margin-right: -4px;
+  gap: var(--rz-colorpicker-items-gap);
 }
 
 .rz-colorpicker-item {
   width: var(--rz-colorpicker-item-size);
   height: var(--rz-colorpicker-item-size);
   border-radius: var(--rz-colorpicker-item-border-radius);
-  margin: var(--rz-colorpicker-item-margin);
   box-shadow: var(--rz-colorpicker-item-shadow);
   cursor: pointer;
 

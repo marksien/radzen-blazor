@@ -1,13 +1,14 @@
 ﻿@inject IHostEnvironment Env
+@inject NavigationManager NavigationManager
+@inject ThemeService ThemeService
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="@(ThemeService.RTL == true ? "rtl" : "ltr")">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <base href="/" />
     <link href="css/site.css" rel="stylesheet" />
     <HeadOutlet @rendermode="InteractiveServer" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
     <style>
         :root {
             font-size: var(--rz-root-font-size);
@@ -78,3 +79,11 @@
     </script>
 </body>
 </html>
+@code {
+    protected override void OnInitialized()
+    {
+#if !RADZEN
+        ThemeService.Initialize(NavigationManager);
+#endif
+    }
+}

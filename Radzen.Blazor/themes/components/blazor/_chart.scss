@@ -83,6 +83,7 @@ $chart-color-schemes: (
 }
 
 .rz-chart {
+  box-sizing: border-box;
   position: relative;
   height: 300px;
 }
@@ -146,6 +147,11 @@ $chart-color-schemes: (
 
 .rz-value-axis .rz-tick-text {
   text-anchor: end;
+
+  /* Right-to-left anchor */
+  *[dir="rtl"] & {
+    text-anchor: start;
+  }
 }
 
 .rz-category-axis .rz-tick-text {

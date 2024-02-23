@@ -22,13 +22,13 @@ $progressbar-circular-value-endpoint: round !default;
   --rz-progressbar-circular-value-endpoint:  #{$progressbar-circular-value-endpoint};
 }
 
-$progressbar-styles: () !default;
-$progressbar-styles: map-merge(
+$progressbar-base-styles: () !default;
+$progressbar-base-styles: map-merge(
   (
-    primary: (
-      background-color: var(--rz-primary),
-      color: var(--rz-on-primary)
-    ), 
+    base: (
+      background-color: var(--rz-base-600),
+      color: var(--rz-text-contrast-color)
+    ),
     light: (
       background-color: var(--rz-base-400),
       color: var(--rz-text-title-color)
@@ -36,29 +36,9 @@ $progressbar-styles: map-merge(
     dark: (
       background-color: var(--rz-base-900),
       color: var(--rz-text-contrast-color)
-    ),
-    secondary: ( 
-      background-color: var(--rz-secondary),
-      color: var(--rz-on-secondary)
-    ),
-    info: (
-      background-color: var(--rz-info),
-      color: var(--rz-on-info)
-    ),
-    warning: (
-      background-color: var(--rz-warning),
-      color: var(--rz-on-warning)
-    ),
-    danger: (
-      background-color: var(--rz-danger),
-      color: var(--rz-on-danger)
-    ),
-    success: (
-      background-color: var(--rz-success),
-      color: var(--rz-on-success)
     )
   ),
-  $progressbar-styles
+  $progressbar-base-styles
 );
 
 $progressbar-circular-sizes: () !default;
@@ -85,6 +65,7 @@ $progressbar-circular-sizes: map-merge(
 );
 
 .rz-progressbar {
+  box-sizing: border-box;
   border-radius: var(--rz-progressbar-border-radius);
   height: var(--rz-progressbar-height);
   position: relative;
@@ -113,6 +94,7 @@ $progressbar-circular-sizes: map-merge(
 }
 
 .rz-progressbar-circular {
+  box-sizing: border-box;
   position: relative;
 }
 
@@ -242,7 +224,7 @@ $progressbar-circular-sizes: map-merge(
   }
 }
 
-@each $style, $progressbar in $progressbar-styles {
+@each $style, $progressbar in map-merge($severity-styles-map, $progressbar-base-styles) {
   .rz-progressbar.rz-progressbar-#{$style} {
     color: map-get($progressbar, color);
   }

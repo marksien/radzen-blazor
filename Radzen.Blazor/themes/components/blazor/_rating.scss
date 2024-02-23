@@ -23,6 +23,7 @@ $rating-ban-icon-color: $rating-color !default;
 }
 
 .rz-rating {
+  box-sizing: border-box;
   display: inline-flex;
   font-size: var(--rz-rating-font-size);
   height: 1em;

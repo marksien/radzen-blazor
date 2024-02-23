@@ -1,6 +1,5 @@
 $form-error-color: var(--rz-danger) !default;
 $form-error-font-size: 0.75rem !default;
-$form-group-margin-bottom: 1.5rem !default; // Bootstrap override
 $validator-background-color: var(--rz-danger) !default;
 $validator-color: var(--rz-on-danger) !default;
 $validator-shadow: 0 6px 14px 0 rgba($rz-danger, 0.3) !default;
@@ -14,7 +13,6 @@ $validator-transform: translateY(12px) !default;
 :root {
   --rz-form-error-color: #{$form-error-color};
   --rz-form-error-font-size: #{$form-error-font-size};
-  --rz-form-group-margin-bottom: #{$form-group-margin-bottom};
   --rz-validator-background-color: #{$validator-background-color};
   --rz-validator-color: #{$validator-color};
   --rz-validator-shadow: #{$validator-shadow};
@@ -22,6 +20,14 @@ $validator-transform: translateY(12px) !default;
   --rz-validator-padding: #{$validator-padding};
   --rz-validator-pointer-size: #{$validator-pointer-size};
   --rz-validator-transform: #{$validator-transform};
+}
+
+.rz-form {
+  box-sizing: border-box;
+}
+
+.rz-message {
+  box-sizing: border-box;
 }
 
 .rz-messages-error {
@@ -46,8 +52,7 @@ $validator-transform: translateY(12px) !default;
     border: var(--rz-validator-pointer-size) solid transparent;
     border-bottom-color: var(--rz-validator-background-color);
     position: absolute;
-    top: 0;
-    left: 0;
-    transform: translate(var(--rz-validator-pointer-size), -100%);
+    inset-block-start: calc(-2 * var(--rz-validator-pointer-size));
+    inset-inline-start: calc(var(--rz-border-radius) + (var(--rz-validator-pointer-size) / 2));
   }
 }

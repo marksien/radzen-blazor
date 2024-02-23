@@ -18,6 +18,7 @@ $rz-security-code-input-line-height: 1 !default;
 }
 
 .rz-security-code {
+  box-sizing: border-box;
   display: inline-flex;
 }
 

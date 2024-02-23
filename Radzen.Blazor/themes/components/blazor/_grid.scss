@@ -31,7 +31,7 @@ $grid-header-font-weight: 600 !default;
 $grid-header-text-transform: uppercase !default;
 $grid-header-color: var(--rz-text-color) !default;
 $grid-header-cell-padding: 0.625rem 0 !default;
-$grid-header-title-padding: 0 0 0 0.5rem !default;
+$grid-header-title-padding-inline: 0.5rem 0 !default;
 $grid-header-sorted-background-color: var(--rz-base-300) !default;
 
 $grid-header-padding: 1rem !default;
@@ -46,7 +46,7 @@ $grid-filter-border: $grid-cell-border !default;
 $grid-filter-font-size: var(--rz-body-font-size) !default;
 $grid-filter-icon-width: var(--rz-icon-size) !default;
 $grid-filter-icon-height: $grid-filter-icon-width !default;
-$grid-filter-icon-margin: 0 0.25rem 0 0 !default;
+$grid-filter-icon-margin-inline: 0 0.25rem !default;
 $grid-filter-icon-font-size: var(--rz-icon-size) !default;
 $grid-filter-color: var(--rz-text-disabled-color) !default;
 $grid-filter-focus-color: var(--rz-secondary) !default;
@@ -62,7 +62,7 @@ $grid-apply-filter-button-background-color: var(--rz-primary) !default;
 $grid-apply-filter-button-color: var(--rz-on-primary) !default;
 $grid-apply-filter-button-shadow: inherit !default;
 
-$grid-header-filter-icon-margin: 0 0.5rem 0 auto !default;
+$grid-header-filter-icon-margin-inline: auto 0.5rem !default;
 $grid-header-filter-icon-hover-color: var(--rz-text-color) !default;
 $grid-header-filter-icon-active-color: var(--rz-primary) !default;
 $grid-header-filter-icon-font-size: 1rem !default;
@@ -101,16 +101,17 @@ $grid-frozen-cell-background-color: $grid-header-background-color !default;
 $grid-state-transition: var(--rz-transition-all) !default;
 
 $grid-group-header-padding: 0.5rem !default;
+$grid-group-header-gap: 0.5rem !default;
 $grid-group-header-item-background-color: var(--rz-base-background-color) !default;
-$grid-group-header-item-padding: 0.5rem !default;
-$grid-group-header-item-margin: 0 0.5rem 0.5rem 0 !default;
+$grid-group-header-item-padding-block: 0.5rem !default;
+$grid-group-header-item-padding-inline: 0.5rem !default;
 $grid-group-header-item-border: $grid-cell-border !default;
 $grid-group-header-item-border-radius: var(--rz-border-radius) !default;
-$grid-group-header-items-margin: 0 0 -0.5rem 0 !default;
+$grid-group-header-item-title-margin-inline: 0 0.5rem !default;
 
 $column-drag-handle-color: $grid-header-color !default;
 $column-drag-handle-hover-color: $column-drag-handle-color !default;
-$column-drag-handle-margin: 0 auto 0 0 !default;
+$column-drag-handle-margin-inline: 0 auto !default;
 $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
 
 // Grid CSS variables
@@ -149,7 +150,7 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
   --rz-grid-header-text-transform: #{$grid-header-text-transform};
   --rz-grid-header-color: #{$grid-header-color};
   --rz-grid-header-cell-padding: #{$grid-header-cell-padding};
-  --rz-grid-header-title-padding: #{$grid-header-title-padding};
+  --rz-grid-header-title-padding-inline: #{$grid-header-title-padding-inline};
   --rz-grid-header-sorted-background-color: #{$grid-header-sorted-background-color};
   --rz-grid-header-padding: #{$grid-header-padding};
   
@@ -163,7 +164,7 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
   --rz-grid-filter-font-size: #{$grid-filter-font-size};
   --rz-grid-filter-icon-width: #{$grid-filter-icon-width};
   --rz-grid-filter-icon-height: #{$grid-filter-icon-height};
-  --rz-grid-filter-icon-margin: #{$grid-filter-icon-margin};
+  --rz-grid-filter-icon-margin-inline: #{$grid-filter-icon-margin-inline};
   --rz-grid-filter-icon-font-size: #{$grid-filter-icon-font-size};
   
   --rz-grid-filter-color: #{$grid-filter-color};
@@ -181,7 +182,7 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
   --rz-grid-apply-filter-button-shadow: #{$grid-apply-filter-button-shadow};
  
   
-  --rz-grid-header-filter-icon-margin: #{$grid-header-filter-icon-margin};
+  --rz-grid-header-filter-icon-margin-inline: #{$grid-header-filter-icon-margin-inline};
   --rz-grid-header-filter-icon-hover-color: #{$grid-header-filter-icon-hover-color};
   --rz-grid-header-filter-icon-active-color: #{$grid-header-filter-icon-active-color};
   --rz-grid-header-filter-icon-font-size: #{$grid-header-filter-icon-font-size};
@@ -220,16 +221,17 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
   --rz-grid-state-transition: #{$grid-state-transition};
   
   --rz-grid-group-header-padding: #{$grid-group-header-padding};
+  --rz-grid-group-header-gap: #{$grid-group-header-gap};
   --rz-grid-group-header-item-background-color: #{$grid-group-header-item-background-color};
-  --rz-grid-group-header-item-padding: #{$grid-group-header-item-padding};
-  --rz-grid-group-header-item-margin: #{$grid-group-header-item-margin};
+  --rz-grid-group-header-item-padding-block: #{$grid-group-header-item-padding-block};
+  --rz-grid-group-header-item-padding-inline: #{$grid-group-header-item-padding-inline};
   --rz-grid-group-header-item-border: #{$grid-group-header-item-border};
   --rz-grid-group-header-item-border-radius: #{$grid-group-header-item-border-radius};
-  --rz-grid-group-header-items-margin: #{$grid-group-header-items-margin};
+  --rz-grid-group-header-item-title-margin-inline: #{$grid-group-header-item-title-margin-inline};
   
   --rz-column-drag-handle-color: #{$column-drag-handle-color};
   --rz-column-drag-handle-hover-color: #{$column-drag-handle-hover-color};
-  --rz-column-drag-handle-margin: #{$column-drag-handle-margin};
+  --rz-column-drag-handle-margin-inline: #{$column-drag-handle-margin-inline};
   --rz-column-draggable-shadow: #{$column-draggable-shadow};
 }
 
@@ -262,6 +264,11 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
     vertical-align: top;
     &:before {
       content: 'arrow_right';
+    }
+
+    /* Right-to-left arrow icons */
+    *[dir="rtl"] & {
+      transform: rotate(180deg);
     }
   }
 
@@ -328,8 +335,8 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
 
 .rz-column-resizer {
   position: absolute;
-  top: 0;
-  right: 0;
+  inset-block-start: 0;
+  inset-inline-end: 0;
   height: 100%;
   cursor: col-resize;
   width: var(--rz-grid-column-resizer-width);
@@ -337,8 +344,8 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
   &:after {
     content: "";
     position: absolute;
-    top: 0;
-    right: 0;
+    inset-block-start: 0;
+    inset-inline-end: 0;
     height: 100%;
     width: var(--rz-grid-column-resizer-helper-width);
     background-color: transparent;
@@ -374,7 +381,7 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
     border-bottom: var(--rz-grid-header-cell-border-bottom);
 
     &:not(:last-child) {
-      border-right: var(--rz-grid-header-cell-border);
+      border-inline-end: var(--rz-grid-header-cell-border);
     }
 
     > div:not(.rz-cell-filter) {
@@ -400,7 +407,7 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
       line-height: var(--rz-grid-header-line-height);
       text-transform: var(--rz-grid-header-text-transform);
       color: var(--rz-grid-header-color);
-      padding: var(--rz-grid-header-title-padding);
+      padding-inline: var(--rz-grid-header-title-padding-inline);
       font-weight: var(--rz-grid-header-font-weight);
       white-space: nowrap;
       overflow: hidden;
@@ -421,11 +428,11 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
     &.rz-text-align-center {
       .rz-column-title {
         justify-content: center;
-        padding-left: 0;
+        padding-inline-start: 0;
       }
       &.rz-sortable-column {
         .rz-column-title {
-          padding-left: var(--rz-grid-sort-icon-width);
+          padding-inline-start: var(--rz-grid-sort-icon-width);
         }
       }
     }
@@ -436,14 +443,14 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
       }
       &.rz-sortable-column {
         .rz-column-title {
-          padding-left: var(--rz-grid-sort-icon-width);
+          padding-inline-start: var(--rz-grid-sort-icon-width);
         }
       }
     }
 
     .rz-column-drag {
       + .rz-column-title {
-        padding-left: 0;
+        padding-inline-start: 0;
       }
     }
   }
@@ -461,11 +468,11 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
     text-overflow: ellipsis;
 
     &:not(:last-child) {
-      border-right: var(--rz-grid-right-cell-border);
+      border-inline-end: var(--rz-grid-right-cell-border);
     }
 
     &.rz-composite-cell {
-      border-right: var(--rz-grid-right-cell-border);
+      border-inline-end: var(--rz-grid-right-cell-border);
     }
   }
 }
@@ -483,7 +490,7 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
   border-bottom-left-radius: var(--rz-border-radius);
 }
 
-.rz-has-paginator {
+.rz-has-pager {
   .rz-datatable-scrollable-body {
     border-radius: 0;
   }
@@ -563,7 +570,7 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
       border-bottom: var(--rz-grid-header-cell-border);
 
       &.rz-composite-cell {
-        border-right: var(--rz-grid-header-cell-border);
+        border-inline-end: var(--rz-grid-header-cell-border);
       }
     }
   }
@@ -576,11 +583,11 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
     border-bottom: var(--rz-grid-bottom-cell-border);
 
     &:not(:last-child) {
-      border-right: var(--rz-grid-right-cell-border);
+      border-inline-end: var(--rz-grid-right-cell-border);
     }
 
     &.rz-composite-cell {
-      border-right: var(--rz-grid-right-cell-border);
+      border-inline-end: var(--rz-grid-right-cell-border);
     }
 
     .rz-cell-data {
@@ -608,10 +615,10 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
   tr {
     td {
       &:first-child {
-        border-left: none;
+        border-inline-start: none;
       }
       &:last-child:not(.rz-composite-cell) {
-        border-right: none;
+        border-inline-end: none;
       }
     }
 
@@ -640,7 +647,7 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
       border-bottom: var(--rz-grid-cell-border);
 
       &:not(:last-child) {
-        border-right: var(--rz-grid-cell-border);
+        border-inline-end: var(--rz-grid-cell-border);
       }
     }
   }
@@ -652,7 +659,7 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
     > tbody > tr > td,
     > tfoot > tr > td {
       border-bottom: none;
-      border-right: none;
+      border-inline-end: none;
     }
   }
 
@@ -663,7 +670,7 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
     > tbody > tr > td,
     > tfoot > tr > td {
       border-bottom: var(--rz-grid-cell-border);
-      border-right: none;
+      border-inline-end: none;
     }
   }
 
@@ -676,7 +683,7 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
       border-bottom: none;
 
       &:not(:last-child) {
-        border-right: var(--rz-grid-cell-border);
+        border-inline-end: var(--rz-grid-cell-border);
       }
     }
   }
@@ -753,16 +760,16 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
       width: var(--rz-grid-filter-icon-width);
       height: var(--rz-grid-filter-icon-height);
       font-size: var(--rz-grid-filter-icon-font-size);
-      margin: var(--rz-grid-filter-icon-margin);
+      margin-inline: var(--rz-grid-filter-icon-margin-inline);
       color: var(--rz-grid-filter-color);
 
       &.rz-cell-filter-clear {
-        margin-left: auto;
+        margin-inline-start: auto;
       }
     }
 
     .rz-current-filter {
-      margin-left: 0.5rem;
+      margin-inline-start: 0.5rem;
     }
   }
 }
@@ -928,7 +935,7 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
     }
   }
 
-  .rz-calendar-inline {
+  .rz-datepicker-inline {
     border-radius: var(--rz-border-radius);
   }
 }
@@ -998,10 +1005,7 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
 
 .rz-datatable-loading {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background-color: var(--rz-grid-loading-indicator-background-color);
   z-index: 2;
 }
@@ -1081,7 +1085,7 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
   padding: 1rem;
 
   .rz-dropdown,
-  .rz-spinner,
+  .rz-numeric,
   .rz-textbox,
   .rz-grid-filter-label {
     display: block;
@@ -1102,9 +1106,10 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
 .rz-grid-filter-icon {
   justify-self: flex-end;
   color: var(--rz-grid-filter-color);
-  margin: var(--rz-grid-header-filter-icon-margin);
+  margin-inline: var(--rz-grid-header-filter-icon-margin-inline);
   font-size: var(--rz-grid-header-filter-icon-font-size);
   transition: var(--rz-grid-state-transition);
+  font-weight: 400;
   &:hover {
     cursor: pointer;
     color: var(--rz-grid-header-filter-icon-hover-color);
@@ -1116,6 +1121,7 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
 }
 
 .rz-data-grid {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
 }
@@ -1160,18 +1166,26 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
 
   .rz-frozen-cell-left.rz-frozen-cell-left-end {
     box-shadow: 5px 0 5px -5px rgba(0,0,0,0.12);
-    border-right: var(--rz-grid-frozen-cell-border) !important;
+    border-inline-end: var(--rz-grid-frozen-cell-border) !important;
+
+    *[dir="rtl"] & {
+      box-shadow: -5px 0 5px -5px rgba(0,0,0,0.12);
+    }
   }
 
   .rz-frozen-cell-right.rz-frozen-cell-right-end {
     box-shadow: -5px 0 5px -5px rgba(0,0,0,0.12);
-    border-left: var(--rz-grid-frozen-cell-border) !important;
+    border-inline-start: var(--rz-grid-frozen-cell-border) !important;
+
+    *[dir="rtl"] & {
+      box-shadow: 5px 0 5px -5px rgba(0,0,0,0.12);
+    }
   }
 
   .rz-frozen-cell-left-inner,
   .rz-frozen-cell-right-inner {
-    border-right: var(--rz-grid-frozen-cell-border) !important;
-    border-left: var(--rz-grid-frozen-cell-border) !important;
+    border-inline-end: var(--rz-grid-frozen-cell-border) !important;
+    border-inline-start: var(--rz-grid-frozen-cell-border) !important;
   }
 }
 
@@ -1209,7 +1223,7 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
   font-size: inherit;
   color: var(--rz-column-drag-handle-color);
   transition: var(--rz-grid-state-transition);
-  margin: var(--rz-column-drag-handle-margin);
+  margin-inline: var(--rz-column-drag-handle-margin-inline);
 
   &:after {
     content: 'more_vert';
@@ -1267,16 +1281,19 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
 }
 
 .rz-group-header {
-  background-color: var(--rz-grid-header-background-color);
-  padding: var(--rz-grid-group-header-padding);
-  border-bottom: var(--rz-grid-bottom-cell-border);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: var(--rz-grid-group-header-gap);
+  padding: var(--rz-grid-group-header-padding);
+  background-color: var(--rz-grid-header-background-color);
+  border-bottom: var(--rz-grid-bottom-cell-border);
 }
 
 .rz-group-header-items {
-  margin: var(--rz-grid-group-header-items-margin);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--rz-grid-group-header-gap);
 }
 
 .rz-group-header-item {
@@ -1285,8 +1302,8 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
   background-color: var(--rz-grid-group-header-item-background-color);
   border: var(--rz-grid-group-header-item-border);
   border-radius: var(--rz-grid-group-header-item-border-radius);
-  padding: var(--rz-grid-group-header-item-padding);
-  margin: var(--rz-grid-group-header-item-margin);
+  padding-block: var(--rz-grid-group-header-item-padding-block);
+  padding-inline: var(--rz-grid-group-header-item-padding-inline);
   width: fit-content;
   float: left;
 
@@ -1300,7 +1317,7 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
 .rz-group-header-item-title {
   font-size: var(--rz-grid-header-font-size);
   font-weight: var(--rz-grid-header-font-weight);
-  margin-right: 0.5rem;
+  margin-inline: var(--rz-grid-group-header-item-title-margin-inline);
 }
 
 .rz-group-header-drop {
@@ -1320,7 +1337,7 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
 
 .rz-filter-button {
   flex: none;
-  margin-right: 0.5rem;
+  margin-inline-end: 0.5rem;
 }
 
 // Density
@@ -1330,16 +1347,13 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
     --rz-grid-cell-padding: 0.25rem 0.5rem;
     --rz-grid-header-cell-padding: 0.25rem 0;
     --rz-grid-header-padding: 0.25rem 1rem;
-    --rz-grid-header-title-padding: 0 0 0 0.5rem;
+    --rz-grid-header-title-padding-inline: 0 0.5rem;
     --rz-grid-filter-padding: 0.25rem 0.5rem;
     --rz-grid-group-header-padding: 0.25rem;
-    --rz-grid-group-header-items-margin: 0 0 -0.25rem 0;
-    --rz-grid-group-header-item-padding: 0.125rem 0.25rem 0.125rem 0.5rem;
-    --rz-grid-group-header-item-margin: 0 0.25rem 0.25rem 0;
+    --rz-grid-group-header-gap: 0.25rem;
+    --rz-grid-group-header-item-padding-block: 0.125rem ;
+    --rz-grid-group-header-item-padding-inline: 0.5rem 0.25rem;
+    --rz-grid-group-header-item-title-margin-inline: 0 0.25rem;
     --rz-dialog-close-font-size: 1rem;
-
-    .rz-group-header-item-title {
-      margin-right: 0.25rem;
-    }
   }
 }

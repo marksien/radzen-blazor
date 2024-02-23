@@ -5,7 +5,7 @@
 <RadzenRow class="rz-p-2" Gap="0.5rem" Style="border-bottom: var(--rz-border-disabled);">
     <RadzenColumn>
         <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" JustifyContent="JustifyContent.Start" Gap="0.5rem">
-            <RadzenButton Visible=@(!ReadOnly) IsBusy=@isBusy Disabled=@isBusy Click="Run" Text="Run" Icon="play_circle_outline" Size="ButtonSize.ExtraSmall" Variant="Variant.Text" Title="Preview edits" class="rz-text-truncate" />
+            <RadzenButton Visible=@(!ReadOnly) IsBusy=@isBusy Disabled=@isBusy Click="Run" Text="Run" Icon="play_circle" Size="ButtonSize.ExtraSmall" Variant="Variant.Text" Title="Preview edits" class="rz-text-truncate" />
             <button class="rz-button rz-button-xs rz-variant-text rz-primary rz-shade-default rz-text-truncate" Title="Copy source code" onclick=@Copy >
                 <RadzenIcon Icon="content_copy" />
                 Copy

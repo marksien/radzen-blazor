@@ -1,3 +1,10 @@
+// Box Sizing
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 // Theme Colors
 
 $rz-theme-colors-map: () !default;
@@ -16,6 +23,12 @@ $rz-theme-colors-map: map-merge(
     "base-700": $rz-base-700,
     "base-800": $rz-base-800,
     "base-900": $rz-base-900,
+
+    "base": $rz-base,
+    "base-light": $rz-base-light,
+    "base-lighter": $rz-base-lighter,
+    "base-dark": $rz-base-dark,
+    "base-darker": $rz-base-darker,
     
     "primary": $rz-primary,
     "primary-light": $rz-primary-light,
@@ -52,6 +65,12 @@ $rz-theme-colors-map: map-merge(
     "danger-lighter": $rz-danger-lighter,
     "danger-dark": $rz-danger-dark,
     "danger-darker": $rz-danger-darker,
+
+    "on-base": $rz-base-900,
+    "on-base-light": $rz-base-900,
+    "on-base-lighter": $rz-base-900,
+    "on-base-dark": $rz-base-50,
+    "on-base-darker": $rz-base-50,
 
     "on-primary": $rz-white,
     "on-primary-light": $rz-white,
@@ -135,8 +154,6 @@ $rz-theme-constants-map: map-merge(
     "body-line-height": $rz-body-line-height,
     "body-background-color": $rz-body-background-color,
     "text-font-family": $rz-text-font-family,
-    "icon-size": $rz-icon-size,
-    "icon-font-family": $rz-icon-font-family,
     "outline-offset": $rz-outline-offset,
     "outline-width": $rz-outline-width,
     "outline-color": $rz-outline-color,
