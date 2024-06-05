@@ -933,7 +933,14 @@ namespace Radzen.Blazor
         {
             get
             {
-                return $"{contentStyle}";
+                if (Inline)
+                {
+                    return "";
+                }
+                else
+                {
+                    return $"{contentStyle}";
+                }
             }
         }
 
