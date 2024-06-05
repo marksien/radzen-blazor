@@ -32,45 +32,47 @@ else
             </RadzenDataGrid>
         </RadzenColumn>
         <RadzenColumn Size="12" SizeMD="6">
-            <RadzenStack>
-                <RadzenCard Variant="Variant.Outlined">
+            <RadzenCard Variant="Variant.Outlined" Style="height: 100%;">
+                <RadzenStack Gap="1rem">
+                    <RadzenCard Variant="Variant.Text" Class="rz-background-color-primary-lighter rz-color-on-primary-lighter">
                     Company:
                     <b>@SelectedOrders.FirstOrDefault()?.Customer?.CompanyName</b>
                 </RadzenCard>
-                <RadzenTabs>
-                    <Tabs>
-                        <RadzenTabsItem Text="Order Details">
-                            <RadzenDataGrid AllowFiltering="true" AllowPaging="true" AllowSorting="true" Data="@(SelectedOrders.FirstOrDefault()?.OrderDetails)">
-                                <Columns>
-                                    <RadzenDataGridColumn Property="Order.CustomerID" Title="Order" />
-                                    <RadzenDataGridColumn Property="Product.ProductName" Title="Product" />
-                                    <RadzenDataGridColumn Property="UnitPrice" Title="Unit Price">
-                                        <Template Context="detail">
-                                            @String.Format(new System.Globalization.CultureInfo("en-US"), "{0:C}", detail.UnitPrice)
-                                        </Template>
-                                    </RadzenDataGridColumn>
-                                    <RadzenDataGridColumn Property="Quantity" Title="Quantity" />
-                                    <RadzenDataGridColumn Property="Discount" Title="Discount">
-                                        <Template Context="detail">
-                                            @String.Format("{0}%", detail.Discount * 100)
-                                        </Template>
-                                    </RadzenDataGridColumn>
-                                </Columns>
-                            </RadzenDataGrid>
-                        </RadzenTabsItem>
-                        <RadzenTabsItem Text="Products">
-                            <RadzenDataList WrapItems="true" AllowPaging="true" Data="@(SelectedOrders.FirstOrDefault()?.OrderDetails)" PageSize="10">
-                                <Template Context="detail">
-                                    <RadzenCard Style="width:100px; height:100px">
-                                        Product:
-                                        <b>@detail?.Product?.ProductName</b>
-                                    </RadzenCard>
-                                </Template>
-                            </RadzenDataList>
-                        </RadzenTabsItem>
-                    </Tabs>
-                </RadzenTabs>
-            </RadzenStack>
+                    <RadzenTabs>
+                        <Tabs>
+                            <RadzenTabsItem Text="Order Details">
+                                <RadzenDataGrid AllowFiltering="true" AllowPaging="true" AllowSorting="true" Data="@(SelectedOrders.FirstOrDefault()?.OrderDetails)">
+                                    <Columns>
+                                        <RadzenDataGridColumn Property="Order.CustomerID" Title="Order" />
+                                        <RadzenDataGridColumn Property="Product.ProductName" Title="Product" />
+                                        <RadzenDataGridColumn Property="UnitPrice" Title="Unit Price">
+                                            <Template Context="detail">
+                                                @String.Format(new System.Globalization.CultureInfo("en-US"), "{0:C}", detail.UnitPrice)
+                                            </Template>
+                                        </RadzenDataGridColumn>
+                                        <RadzenDataGridColumn Property="Quantity" Title="Quantity" />
+                                        <RadzenDataGridColumn Property="Discount" Title="Discount">
+                                            <Template Context="detail">
+                                                @String.Format("{0}%", detail.Discount * 100)
+                                            </Template>
+                                        </RadzenDataGridColumn>
+                                    </Columns>
+                                </RadzenDataGrid>
+                            </RadzenTabsItem>
+                            <RadzenTabsItem Text="Products">
+                                <RadzenDataList WrapItems="true" AllowPaging="true" Data="@(SelectedOrders.FirstOrDefault()?.OrderDetails)" PageSize="10">
+                                    <Template Context="detail">
+                                        <RadzenCard Variant="Variant.Outlined"Style="width:100px; height:100px">
+                                            <RadzenBadge Shade="Shade.Lighter" BadgeStyle="BadgeStyle.Info" Text="Product" Class="rz-mb-1" />
+                                            <RadzenText TextStyle="TextStyle.H6" TagName="TagName.P">@detail?.Product?.ProductName</RadzenText>
+                                        </RadzenCard>
+                                    </Template>
+                                </RadzenDataList>
+                            </RadzenTabsItem>
+                        </Tabs>
+                    </RadzenTabs>
+                </RadzenStack>
+            </RadzenCard>
         </RadzenColumn>
     </RadzenRow>
 }

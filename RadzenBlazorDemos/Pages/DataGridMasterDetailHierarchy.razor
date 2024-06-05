@@ -22,7 +22,7 @@
     <RadzenDataGrid @ref="grid" AllowFiltering="true" AllowPaging="true" PageSize="3" AllowSorting="true" RowRender="@RowRender" ExpandMode="@expandMode"
                     Data="@orders" TItem="Order">
         <Template Context="order">
-            <RadzenCard Style="margin-bottom:20px">
+            <RadzenCard Variant="Variant.Text" Class="rz-background-color-primary-lighter rz-color-on-primary-lighter rz-m-4">
                 Company:
                 <b>@order.Customer?.CompanyName</b>
             </RadzenCard>
@@ -50,9 +50,9 @@
                     <RadzenTabsItem Text="Products">
                         <RadzenDataList WrapItems="true" AllowPaging="true" Data="@order.OrderDetails" PageSize="10">
                             <Template Context="detail">
-                                <RadzenCard Style="width:100px; height:100px">
-                                    <h4 class="text-thin">Product</h4>
-                                    <b>@detail?.Product?.ProductName</b>
+                                <RadzenCard Variant="Variant.Outlined"Style="width:100px; height:100px">
+                                    <RadzenBadge Shade="Shade.Lighter" BadgeStyle="BadgeStyle.Info" Text="Product" Class="rz-mb-1" />
+                                    <RadzenText TextStyle="TextStyle.H6" TagName="TagName.P">@detail?.Product?.ProductName</RadzenText>
                                 </RadzenCard>
                             </Template>
                         </RadzenDataList>
