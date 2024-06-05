@@ -51,16 +51,17 @@ $grid-filter-icon-font-size: var(--rz-icon-size) !default;
 $grid-filter-color: var(--rz-text-disabled-color) !default;
 $grid-filter-focus-color: var(--rz-secondary) !default;
 $grid-filter-gap: 1rem !default;
-$grid-filter-buttons-padding: 1rem !default;
-$grid-filter-buttons-border: var(--rz-border-normal) !default;
-$grid-filter-buttons-background-color: var(--rz-base-200) !default;
+$grid-filter-buttons-padding: 0 1rem 1rem !default;
+$grid-filter-buttons-border: none !default;
+$grid-filter-buttons-background-color: var(--rz-base-100) !default;
 
-$grid-clear-filter-button-background-color: var(--rz-secondary) !default;
-$grid-clear-filter-button-color: var(--rz-on-secondary) !default;
-$grid-clear-filter-button-shadow: inherit !default;
+$grid-filter-button-padding-inline: 1rem !default;
+$grid-clear-filter-button-background-color: var(--rz-base) !default;
+$grid-clear-filter-button-color: var(--rz-on-base) !default;
+$grid-clear-filter-button-shadow: none !default;
 $grid-apply-filter-button-background-color: var(--rz-primary) !default;
 $grid-apply-filter-button-color: var(--rz-on-primary) !default;
-$grid-apply-filter-button-shadow: inherit !default;
+$grid-apply-filter-button-shadow: none !default;
 
 $grid-header-filter-icon-margin-inline: auto 0.5rem !default;
 $grid-header-filter-icon-hover-color: var(--rz-text-color) !default;
@@ -174,6 +175,7 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
   --rz-grid-filter-buttons-border: #{$grid-filter-buttons-border};
   --rz-grid-filter-buttons-background-color: #{$grid-filter-buttons-background-color};
   
+  --rz-grid-filter-button-padding-inline: #{$grid-filter-button-padding-inline};
   --rz-grid-clear-filter-button-background-color: #{$grid-clear-filter-button-background-color};
   --rz-grid-clear-filter-button-color: #{$grid-clear-filter-button-color};
   --rz-grid-clear-filter-button-shadow: #{$grid-clear-filter-button-shadow};
@@ -401,8 +403,9 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
     .rz-column-title {
       display: inline-flex;
       flex: auto;
-      width: 100%;
       align-items: center;
+      gap: 0.25rem;
+      width: 100%;
       font-size: var(--rz-grid-header-font-size);
       line-height: var(--rz-grid-header-line-height);
       text-transform: var(--rz-grid-header-text-transform);
@@ -746,7 +749,6 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
 .rz-cell-filter {
   padding: var(--rz-grid-filter-padding);
   margin: var(--rz-grid-filter-margin);
-  background-color: var(--rz-grid-filter-background-color);
   border-top: var(--rz-grid-filter-border);
   font-size: var(--rz-grid-filter-font-size);
   font-weight: normal;
@@ -920,26 +922,6 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
   min-height: 1.375rem;
 }
 
-.rz-date-filter {
-  display: flex;
-  align-items: stretch;
-  background-color: var(--rz-grid-filter-background-color);
-  gap: var(--rz-grid-filter-gap);
-  padding: var(--rz-grid-filter-gap);
-
-  .rz-listbox {
-    min-width: 10rem;
-
-    .rz-listbox-item {
-      font-size: 0.875rem;
-    }
-  }
-
-  .rz-datepicker-inline {
-    border-radius: var(--rz-border-radius);
-  }
-}
-
 .rz-expanded-row {
   > td {
     border-bottom: none;
@@ -977,30 +959,6 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
     border-top: var(--rz-grid-border);
     border-bottom: var(--rz-grid-border);
   }
-}
-
-.rz-date-filter-buttons {
-  display: flex;
-  justify-content: space-between;
-  padding: var(--rz-grid-filter-buttons-padding);
-  background-color: var(--rz-grid-filter-buttons-background-color);
-  border-top: var(--rz-grid-filter-buttons-border);
-
-  .rz-button {
-    @extend %button-md;
-  }
-}
-
-.rz-clear-filter {
-  background-color: var(--rz-grid-clear-filter-button-background-color);
-  color: var(--rz-grid-clear-filter-button-color);
-  box-shadow: var(--rz-grid-clear-filter-button-shadow);
-}
-
-.rz-apply-filter {
-  background-color: var(--rz-grid-apply-filter-button-background-color);
-  color: var(--rz-grid-apply-filter-button-color);
-  box-shadow: var(--rz-grid-apply-filter-button-shadow);
 }
 
 .rz-datatable-loading {
@@ -1097,10 +1055,56 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
   }
 }
 
+.rz-grid-date-filter {
+  width: 576px;
+}
+
+.rz-date-filter {
+  display: flex;
+  align-items: stretch;
+  background-color: var(--rz-grid-filter-background-color);
+  gap: var(--rz-grid-filter-gap);
+  padding: var(--rz-grid-filter-gap);
+
+  .rz-listbox {
+    min-width: 11em;
+
+    .rz-listbox-item {
+      font-size: 0.875rem;
+    }
+  }
+
+  .rz-datepicker-inline {
+    border-radius: var(--rz-border-radius);
+
+    table {
+      width: 100%;
+    }
+  }
+}
+
 .rz-grid-filter-buttons {
   display: flex;
   justify-content: space-between;
   padding: var(--rz-grid-filter-buttons-padding);
+  background-color: var(--rz-grid-filter-buttons-background-color);
+  border-top: var(--rz-grid-filter-buttons-border);
+
+  .rz-button.rz-shade-default{
+    &.rz-clear-filter {
+      background-color: var(--rz-grid-clear-filter-button-background-color);
+      color: var(--rz-grid-clear-filter-button-color);
+      box-shadow: var(--rz-grid-clear-filter-button-shadow);
+      padding-inline: var(--rz-grid-filter-button-padding-inline);
+    }
+  
+    &.rz-apply-filter {
+      background-color: var(--rz-grid-apply-filter-button-background-color);
+      color: var(--rz-grid-apply-filter-button-color);
+      box-shadow: var(--rz-grid-apply-filter-button-shadow);
+      padding-inline: var(--rz-grid-filter-button-padding-inline);
+    }
+  }
 }
 
 .rz-grid-filter-icon {
@@ -1118,6 +1122,7 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
 
 .rz-grid-filter-active {
   color: var(--rz-grid-header-filter-icon-active-color) !important;
+  --rz-icon-fill: 1;
 }
 
 .rz-data-grid {
@@ -1347,7 +1352,7 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
     --rz-grid-cell-padding: 0.25rem 0.5rem;
     --rz-grid-header-cell-padding: 0.25rem 0;
     --rz-grid-header-padding: 0.25rem 1rem;
-    --rz-grid-header-title-padding-inline: 0 0.5rem;
+    --rz-grid-header-title-padding-inline: 0.5rem 0;
     --rz-grid-filter-padding: 0.25rem 0.5rem;
     --rz-grid-group-header-padding: 0.25rem;
     --rz-grid-group-header-gap: 0.25rem;
