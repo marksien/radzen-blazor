@@ -1,34 +1,113 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using Microsoft.AspNetCore.Components;
 
-namespace RadzenBlazorDemos
+namespace Radzen
 {
-    public class ThemeService
+    /// <summary>
+    /// Options for changing the theme.
+    /// </summary>
+    public class ThemeOptions
     {
-        public class Theme
-        {
-            public string Text { get; set; }
-            public string Value { get; set; }
-            public string Primary { get; set; }
-            public string Secondary { get; set; }
-            public string Base { get; set; }
-            public string Content { get; set; }
-            public string TitleText { get; set; }
-            public string ContentText { get; set; }
-            public string Selection { get; set; }
-            public string SelectionText { get; set; }
-            public string ButtonRadius { get; set; }
-            public string CardRadius { get; set; }
-            public string SeriesA { get; set; }
-            public string SeriesB { get; set; }
-            public string SeriesC { get; set; }
-            public bool Premium { get; set; }
-        }
-        public static readonly Theme[] Themes = new []
-        {
+        /// <summary>
+        /// Specifies the theme.
+        /// </summary>
+        public string Theme { get; set; }
+        /// <summary>
+        /// Specifies if the theme colors should meet WCAG contrast requirements.
+        /// </summary>
+        public bool? Wcag { get; set; }
+        /// <summary>
+        /// Specifies if the theme should be right-to-left.
+        /// </summary>
+        public bool? RightToLeft { get; set; }
+        /// <summary>
+        /// Specifies if the theme change should trigger the <see cref="ThemeService.ThemeChanged" /> event.
+        /// </summary>
+        public bool TriggerChange { get; set; }
+    }
+
+    /// <summary>
+    /// Theme definition.
+    /// </summary>
+    public class Theme
+    {
+        /// <summary>
+        /// Specifies the user-friendly theme name e.g. Material3.
+        /// </summary>
+        public string Text { get; set; }
+        /// <summary>
+        /// Specifies the theme value e.g. material3.
+        /// </summary>
+        public string Value { get; set; }
+        /// <summary>
+        /// Specifies the primary color.
+        /// </summary>
+        public string Primary { get; set; }
+        /// <summary>
+        /// Specifies the secondary color.
+        /// </summary>
+        public string Secondary { get; set; }
+        /// <summary>
+        /// Specifies the base color.
+        /// </summary>
+        public string Base { get; set; }
+        /// <summary>
+        /// Specifies the content color.
+        /// </summary>
+        public string Content { get; set; }
+        /// <summary>
+        /// Specifies the title text color.
+        /// </summary>
+        public string TitleText { get; set; }
+        /// <summary>
+        /// Specifies the content text color.
+        /// </summary>
+        public string ContentText { get; set; }
+        /// <summary>
+        /// Specifies the selection color.
+        /// </summary>
+        public string Selection { get; set; }
+        /// <summary>
+        /// Specifies the selection text color.
+        /// </summary>
+        public string SelectionText { get; set; }
+        /// <summary>
+        /// Specifies the button radius.
+        /// </summary>
+        public string ButtonRadius { get; set; }
+        /// <summary>
+        /// Specifies the card radius.
+        /// </summary>
+        public string CardRadius { get; set; }
+        /// <summary>
+        /// Specifies the series A color.
+        /// </summary>
+        public string SeriesA { get; set; }
+        /// <summary>
+        /// Specifies the series B color.
+        /// </summary>
+        public string SeriesB { get; set; }
+        /// <summary>
+        /// Specifies the series C color.
+        /// </summary>
+        public string SeriesC { get; set; }
+        /// <summary>
+        /// Specifies if the theme is premium.
+        /// </summary>
+        public bool Premium { get; set; }
+    }
+
+    /// <summary>
+    /// Predefined themes.
+    /// </summary>
+    public static class Themes
+    {
+        /// <summary>
+        /// Predefined themes.
+        /// </summary>
+        public static readonly Theme[] All = [
             new Theme {
                 Text = "Material 3",
                 Value = "material3",
@@ -221,38 +300,115 @@ namespace RadzenBlazorDemos
                 SeriesB = "#68d5c8",
                 SeriesC = "#ff6d41"
             }
-        };
+        ];
 
-        public const string DefaultTheme = "material3";
-        public const string QueryParameter = "theme";
-        public const string WCAGQueryParameter = "wcag";
-        public const string RTLQueryParameter = "rtl";
+        /// <summary>
+        /// Free themes.
+        /// </summary>
+        public static IEnumerable<Theme> Free => All.Where(theme => !theme.Premium);
 
-        public string CurrentTheme { get; set; } = DefaultTheme;
-        public bool WCAG { get; set; }
-        public bool RTL { get; set; }
+        /// <summary>
+        /// Premium themes.
+        /// </summary>
+        public static IEnumerable<Theme> Premium => All.Where(theme => theme.Premium);
+    }
 
-        public void Initialize(NavigationManager navigationManager)
+    /// <summary>
+    /// Service for theme registration and management.
+    /// </summary>
+    public class ThemeService
+    {
+        /// <summary>
+        /// Gets the current theme.
+        /// </summary>
+        public string Theme { get; private set; }
+
+        /// <summary>
+        /// Specify if the theme colors should meet WCAG contrast requirements.
+        /// </summary>
+        public bool? Wcag { get; private set; }
+
+        /// <summary>
+        /// Specify if the theme should be right-to-left.
+        /// </summary>
+        public bool? RightToLeft { get; private set; }
+
+        /// <summary>
+        /// Raised when the theme changes.
+        /// </summary>
+        public event EventHandler ThemeChanged;
+
+        /// <summary>
+        /// Changes the current theme.
+        /// </summary>
+        public void SetTheme(string theme, bool triggerChange = true)
         {
-            var uri = new Uri(navigationManager.ToAbsoluteUri(navigationManager.Uri).ToString());
-            var query = HttpUtility.ParseQueryString(uri.Query);
-            var value = query.Get(QueryParameter);
-
-            if (Themes.Any(theme => theme.Value == value))
+            SetTheme(new ThemeOptions
             {
-                CurrentTheme = value;
-            }
-
-            WCAG = bool.Parse(query.Get(WCAGQueryParameter) ?? "false");
-            RTL = bool.Parse(query.Get(RTLQueryParameter) ?? "false");
+                Theme = theme,
+                Wcag = Wcag,
+                RightToLeft = RightToLeft,
+                TriggerChange = triggerChange
+            });
         }
 
-        public void Change(NavigationManager navigationManager, string theme, bool wcag, bool rtl)
+        /// <summary>
+        /// Changes the current theme with additional options.
+        /// </summary>
+        public void SetTheme(ThemeOptions options)
         {
-            var url = navigationManager.GetUriWithQueryParameters(navigationManager.Uri,
-                new Dictionary<string, object>() { { QueryParameter, theme }, { WCAGQueryParameter, $"{wcag}".ToLowerInvariant() }, { RTLQueryParameter, $"{rtl}".ToLowerInvariant() } });
+            var requiresChange = false;
 
-            navigationManager.NavigateTo(url, true);
+            if (Theme != options.Theme)
+            {
+                Theme = options.Theme;
+                requiresChange = true;
+            }
+
+            if (Wcag != options.Wcag)
+            {
+                Wcag = options.Wcag;
+                requiresChange = true;
+            }
+
+            if (RightToLeft != options.RightToLeft)
+            {
+                RightToLeft = options.RightToLeft;
+                requiresChange = true;
+            }
+
+            if (requiresChange && options.TriggerChange)
+            {
+                ThemeChanged?.Invoke(this, EventArgs.Empty);
+            }
+        }
+
+        /// <summary>
+        /// Enables or disables WCAG contrast requirements.
+        /// </summary>
+        public void SetWcag(bool wcag)
+        {
+            SetTheme(new ThemeOptions
+            {
+                Theme = Theme,
+                Wcag = wcag,
+                RightToLeft = RightToLeft,
+                TriggerChange = true
+            });
+        }
+
+        /// <summary>
+        /// Specifies if the theme should be right-to-left.
+        /// </summary>
+        public void SetRightToLeft(bool rightToLeft)
+        {
+            SetTheme(new ThemeOptions
+            {
+                Theme = Theme,
+                Wcag = Wcag,
+                RightToLeft = rightToLeft,
+                TriggerChange = true
+            });
         }
     }
 }

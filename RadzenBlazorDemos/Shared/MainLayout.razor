@@ -2,6 +2,7 @@
 @using Radzen.Blazor
 @inherits LayoutComponentBase
 @inject ThemeService ThemeService
+@inject QueryStringThemeService QueryStringThemeService
 @inject ExampleService ExampleService
 @inject NavigationManager UriHelper
 @inject IJSRuntime JSRuntime
@@ -28,6 +29,7 @@
                         <a href="https://github.com/radzenhq/radzen-blazor" title="Star Radzen Blazor Components on GitHub" Class="rz-text-nowrap rz-mx-2 rz-mx-lg-4" target="_blank">GitHub</a>
                     </div>
                     <RadzenSidebarToggle Icon="settings" Click="@(() => configSidebarExpanded = !configSidebarExpanded)" Class="rz-m-0" />
+                    <RadzenThemeSwitch />
                 </RadzenStack>
             </RadzenColumn>
         </RadzenRow>
@@ -115,20 +117,20 @@
                 <RadzenLabel Text="Use WCAG compliant colors" Component="WCAG" Title="Use WCAG 2.2 AA compliant color swatches" />
                 <RadzenButton Icon="info" Variant="Variant.Text" ButtonStyle="ButtonStyle.Secondary" Size="ButtonSize.ExtraSmall" @ref="wcagColorsInfo" Click="@(args => WcagColorsTooltip(wcagColorsInfo.Element, new TooltipOptions(){ Position = TooltipPosition.Left, Duration = null, Style = "background: var(--rz-base-900); color: var(--rz-base-100)" }))" />
             </RadzenStack>
-            <RadzenSwitch @bind-Value="@WCAG" Name="WCAG" Change="@(args => ChangeTheme(ThemeService.CurrentTheme))" />
+            <RadzenSwitch Value="@(ThemeService.Wcag == true)" Name="WCAG" Change="@(ThemeService.SetWcag)" />
         </RadzenStack>
         <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" JustifyContent="JustifyContent.SpaceBetween" Gap="0.5rem" Class="rz-mt-8">
             <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="0.25rem">
                 <RadzenLabel Text="Enable RTL directionality" Component="RTL" Title="Use right to left direction for languages that are written from the right to the left (like Arabic)" />
                 <RadzenButton Icon="info" Variant="Variant.Text" ButtonStyle="ButtonStyle.Secondary" Size="ButtonSize.ExtraSmall" @ref="wcagColorsInfo" Click="@(args => WcagColorsTooltip(wcagColorsInfo.Element, new TooltipOptions(){ Position = TooltipPosition.Left, Duration = null, Style = "background: var(--rz-base-900); color: var(--rz-base-100)" }))" />
             </RadzenStack>
-            <RadzenSwitch @bind-Value="@RTL" Name="RTL" Change="@(args => ChangeTheme(ThemeService.CurrentTheme))" />
+            <RadzenSwitch Value="@(ThemeService.RightToLeft == true)" Name="RTL" Change="@(ThemeService.SetRightToLeft)" />
         </RadzenStack>
         <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="0.25rem" Class="rz-mt-8 rz-mb-2">
             <RadzenText TextStyle="TextStyle.Subtitle1" TagName="TagName.P" Class="rz-m-0">Premium Themes</RadzenText>
             <RadzenButton Icon="info" Variant="Variant.Text" ButtonStyle="ButtonStyle.Secondary" Size="ButtonSize.ExtraSmall" @ref="premiumThemesInfo" Click="@(args => PremiumThemesTooltip(premiumThemesInfo.Element, new TooltipOptions(){ Position = TooltipPosition.Left, Duration = null, Style = "background: var(--rz-base-900); color: var(--rz-base-100)" }))" />
         </RadzenStack>
-        <RadzenListBox TValue="string" TextProperty="Text" ValueProperty="Value" Data="@ThemeService.Themes.Where(t => t.Premium)" Value="@ThemeService.CurrentTheme" Change="@ChangeTheme" Style="width: 100%; max-width: 400px; height: 50%; --rz-dropdown-item-padding: 12px 16px 16px; --rz-listbox-padding: 0;" InputAttributes="@(new Dictionary<string,object>(){ { "aria-label", "select theme" }})">
+        <RadzenListBox TValue="string" TextProperty="Text" ValueProperty="Value" Data="@Themes.Premium" Value="@ThemeService.Theme" Change="@ChangeTheme" Style="width: 100%; max-width: 400px; height: 50%; --rz-dropdown-item-padding: 12px 16px 16px; --rz-listbox-padding: 0;" InputAttributes="@(new Dictionary<string,object>(){ { "aria-label", "select theme" }})">
             <Template>
                 <RadzenStack Orientation="Orientation.Vertical" AlignItems="AlignItems.Start" Gap="0.25rem">
                     @context.Text
@@ -196,7 +198,7 @@
             <RadzenText TextStyle="TextStyle.Subtitle1" TagName="TagName.P" Class="rz-m-0">Free Themes</RadzenText>
             <RadzenButton Icon="info" Variant="Variant.Text" ButtonStyle="ButtonStyle.Secondary" Size="ButtonSize.ExtraSmall" @ref="freeThemesInfo" Click="@(args => FreeThemesTooltip(freeThemesInfo.Element, new TooltipOptions(){ Position = TooltipPosition.Left, Duration = null, Style = "background: var(--rz-base-900); color: var(--rz-base-100)" }))" />
         </RadzenStack>
-        <RadzenListBox TValue="string" TextProperty="Text" ValueProperty="Value" Data="@ThemeService.Themes.Where(t => !t.Premium)" Value="@ThemeService.CurrentTheme" Change="@ChangeTheme" Style="width: 100%; max-width: 400px; height: 50%; --rz-dropdown-item-padding: 10px 16px 16px; --rz-listbox-padding: 0;" InputAttributes="@(new Dictionary<string,object>(){ { "aria-label", "select theme" }})">
+        <RadzenListBox TValue="string" TextProperty="Text" ValueProperty="Value" Data="@Themes.Free" Value="@ThemeService.Theme" Change="@ChangeTheme" Style="width: 100%; max-width: 400px; height: 50%; --rz-dropdown-item-padding: 10px 16px 16px; --rz-listbox-padding: 0;" InputAttributes="@(new Dictionary<string,object>(){ { "aria-label", "select theme" }})">
             <Template>
                 <RadzenStack Orientation="Orientation.Vertical" AlignItems="AlignItems.Start" Gap="0.25rem">
                     @context.Text
@@ -280,18 +282,10 @@
     bool sidebarExpanded = true;
     bool configSidebarExpanded = false;
     bool rendered;
-    bool WCAG;
-    bool RTL;
 
     IEnumerable<Example> examples;
     protected override void OnInitialized()
     {
-        ThemeService.Initialize(UriHelper);
-
-        WCAG = ThemeService.WCAG;
-
-        RTL = ThemeService.RTL;
-
         examples = ExampleService.Examples;
 
         System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
@@ -314,7 +308,7 @@
 
     void ChangeTheme(object value)
     {
-        ThemeService.Change(UriHelper, $"{value}", WCAG, RTL);
+        ThemeService.SetTheme($"{value}");
     }
 
     void WcagColorsTooltip(ElementReference elementReference, TooltipOptions options = null) => TooltipService.Open(elementReference, ds =>
