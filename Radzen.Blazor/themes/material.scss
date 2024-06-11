@@ -7,18 +7,7 @@ $material: true;
 $rz-white: #ffffff !default;
 $rz-black: #000000 !default;
 
-$rz-base-50: #fafafa !default;
-$rz-base-100: #f5f5f5 !default;
-$rz-base-200: #eeeeee !default;
-$rz-base-300: #e0e0e0 !default;
-$rz-base-400: #bdbdbd !default;
-$rz-base-500: #9e9e9e !default;
-$rz-base-600: #757575 !default;
-$rz-base-700: #616161 !default;
-$rz-base-800: #424242 !default;
-$rz-base-900: #212121 !default;
-
-$rz-base: var(--rz-base-200) !default;
+$rz-base: #eeeeee !default;
 $rz-primary: #4340D2 !default;
 $rz-secondary: #e91e63 !default;
 $rz-info: #2196f3 !default;
@@ -51,10 +40,20 @@ $rz-series-22: #c5e1a5 !default;
 $rz-series-23: #80cbc4 !default;
 $rz-series-24: #b3e5fc !default;
 
-$rz-base-light: var(--rz-base-100) !default;
-$rz-base-lighter: var(--rz-base-50) !default;
-$rz-base-dark: var(--rz-base-600) !default;
-$rz-base-darker: var(--rz-base-900) !default;
+$rz-base-50: #fafafa !default;
+$rz-base-100: #f5f5f5 !default;
+$rz-base-200: #eeeeee !default;
+$rz-base-300: #e0e0e0 !default;
+$rz-base-400: #bdbdbd !default;
+$rz-base-500: #9e9e9e !default;
+$rz-base-600: #757575 !default;
+$rz-base-700: #616161 !default;
+$rz-base-800: #424242 !default;
+$rz-base-900: #212121 !default;
+$rz-base-light: #f5f5f5 !default;
+$rz-base-lighter: #ffffff !default;
+$rz-base-dark: #757575 !default;
+$rz-base-darker: #212121 !default;
 
 $rz-primary-light: mix($rz-white, $rz-primary, 20%) !default;
 $rz-primary-lighter: rgba($rz-primary, .12) !default;
@@ -109,6 +108,7 @@ $rz-theme-colors-map: map-merge(
     "white": $rz-white,
     "black": $rz-black,
     
+    "base": $rz-base,
     "base-50": $rz-base-50,
     "base-100": $rz-base-100,
     "base-200": $rz-base-200,
@@ -119,8 +119,6 @@ $rz-theme-colors-map: map-merge(
     "base-700": $rz-base-700,
     "base-800": $rz-base-800,
     "base-900": $rz-base-900,
-
-    "base": $rz-base,
     "base-light": $rz-base-light,
     "base-lighter": $rz-base-lighter,
     "base-dark": $rz-base-dark,

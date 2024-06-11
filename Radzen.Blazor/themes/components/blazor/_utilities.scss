@@ -13,6 +13,7 @@ $rz-theme-colors-map: map-merge(
     "white": $rz-white,
     "black": $rz-black,
     
+    "base": $rz-base,
     "base-50": $rz-base-50,
     "base-100": $rz-base-100,
     "base-200": $rz-base-200,
@@ -23,8 +24,6 @@ $rz-theme-colors-map: map-merge(
     "base-700": $rz-base-700,
     "base-800": $rz-base-800,
     "base-900": $rz-base-900,
-
-    "base": $rz-base,
     "base-light": $rz-base-light,
     "base-lighter": $rz-base-lighter,
     "base-dark": $rz-base-dark,
