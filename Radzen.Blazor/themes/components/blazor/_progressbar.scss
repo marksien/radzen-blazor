@@ -156,10 +156,14 @@ $progressbar-circular-sizes: map-merge(
       background-color: var(--rz-progressbar-value-background-color);
       will-change: left, right;
       animation: 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite rz-progressbar-indeterminate-anim;
+
+      *[dir="rtl"] & {
+        animation-name: rz-progressbar-indeterminate-anim-rtl;
+      }
     }
 
     &:after {
-    content: '';
+      content: '';
       position: absolute;
       top: 0;
       left: 0;
@@ -168,6 +172,10 @@ $progressbar-circular-sizes: map-merge(
       will-change: left, right;
       animation: 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite rz-progressbar-indeterminate-anim-short;
       animation-delay: 1.15s;
+
+      *[dir="rtl"] & {
+        animation-name: rz-progressbar-indeterminate-anim-short-rtl;
+      }
     }
 
     @keyframes rz-progressbar-indeterminate-anim {
@@ -191,6 +199,30 @@ $progressbar-circular-sizes: map-merge(
       100%, 60% {
         left: 107%;
         right: -8%;
+      }
+    }
+
+    @keyframes rz-progressbar-indeterminate-anim-rtl {
+      0% {
+        right: -35%;
+        left: 100%;
+      }
+
+      60%, 100% {
+        right: 100%;
+        left: -90%;
+      }
+    }
+
+    @keyframes rz-progressbar-indeterminate-anim-short-rtl {
+      0% {
+        right: -200%;
+        left: 100%;
+      }
+
+      60%, 100% {
+        right: 107%;
+        left: -8%;
       }
     }
   }
