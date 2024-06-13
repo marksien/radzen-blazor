@@ -42,7 +42,6 @@ namespace Radzen.Blazor
             "material3" => true,
             "fluent" => true,
             "fluent-dark" => true,
-            "material-dark" => true,
             "material3-dark" => true,
             _ => false
         };
