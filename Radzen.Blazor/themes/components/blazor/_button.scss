@@ -319,7 +319,7 @@ $button-sizes: map-merge(
         } @else if $style == 'base' {
           &.rz-shade-lighter { color: var(--rz-#{$style}-lighter); }
           &.rz-shade-light { color: var(--rz-#{$style}-light); }
-          &.rz-shade-default { color: var(--rz-text-color); }
+          &.rz-shade-default { color: inherit }
           &.rz-shade-dark { color: var(--rz-#{$style}-dark); }
           &.rz-shade-darker { color: var(--rz-#{$style}-darker); }
         } @else {
