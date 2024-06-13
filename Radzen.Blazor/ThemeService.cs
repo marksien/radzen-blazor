@@ -200,7 +200,6 @@ namespace Radzen
             new Theme {
                 Text = "Material Dark",
                 Value = "material-dark",
-                Premium = true,
                 Primary = "#bb86fc",
                 Secondary = "#01a299",
                 Base = "#121212",
