@@ -8,6 +8,34 @@ namespace Radzen.Blazor
     /// </summary>
     public partial class RadzenThemeSwitch : RadzenComponent
     {
+///     <summary>
+        /// Gets or sets the switch button variant.
+        /// </summary>
+        /// <value>The switch button variant.</value>
+        [Parameter]
+        public Variant Variant { get; set; } = Variant.Text;
+
+        /// <summary>
+        /// Gets or sets the switch button style.
+        /// </summary>
+        /// <value>The switch button style.</value>
+        [Parameter]
+        public ButtonStyle ButtonStyle { get; set; } = ButtonStyle.Base;
+
+        /// <summary>
+        /// Gets or sets the switch button toggled shade.
+        /// </summary>
+        /// <value>The switch button toggled shade.</value>
+        [Parameter]
+        public Shade ToggleShade { get; set; } = Shade.Default;
+
+        /// <summary>
+        /// Gets or sets the switch button toggled style.
+        /// </summary>
+        /// <value>The switch button toggled style.</value>
+        [Parameter]
+        public ButtonStyle ToggleButtonStyle { get; set; } = ButtonStyle.Base;
+
         /// <summary>
         /// Gets or sets the light theme. Set to <c>Default</c> by default.
         /// </summary>
@@ -44,7 +72,7 @@ namespace Radzen.Blazor
             ThemeService.SetTheme(value ? LightTheme : DarkTheme);
         }
 
-        private string Icon => value ? "wb_sunny" : "nights_stay";
+        private string Icon => value ? "dark_mode" : "light_mode";
 
         /// <inheritdoc />
         public override void Dispose()
