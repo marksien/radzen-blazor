@@ -87,7 +87,7 @@ namespace Radzen
         /// <summary>
         /// Adds the <see cref="CookieThemeService" /> to the service collection.
         /// </summary>
-        public static void AddRadzenQueryStringThemeService(this IServiceCollection services)
+        public static void AddRadzenCookieThemeService(this IServiceCollection services)
         {
             services.AddScoped<CookieThemeService>();
         }
