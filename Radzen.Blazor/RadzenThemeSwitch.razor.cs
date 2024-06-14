@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using Microsoft.AspNetCore.Components;
 
 namespace Radzen.Blazor
@@ -8,7 +9,9 @@ namespace Radzen.Blazor
     /// </summary>
     public partial class RadzenThemeSwitch : RadzenComponent
     {
-///     <summary>
+        [Inject]
+        private ThemeService ThemeService { get; set; }
+        /// <summary>
         /// Gets or sets the switch button variant.
         /// </summary>
         /// <value>The switch button variant.</value>
@@ -37,16 +40,40 @@ namespace Radzen.Blazor
         public ButtonStyle ToggleButtonStyle { get; set; } = ButtonStyle.Base;
 
         /// <summary>
-        /// Gets or sets the light theme. Set to <c>Default</c> by default.
+        /// Gets or sets the light theme. Not set by default - the component uses the light version of the current theme.
         /// </summary>
         [Parameter]
-        public string LightTheme { get; set; } = "Default";
+        public string LightTheme { get; set; }
 
         /// <summary>
-        /// Gets or sets the dark theme. Set to <c>Dark</c> by default.
+        /// Gets or sets the dark theme. Not set by default - the component uses the dark version of the current theme.
         /// </summary>
         [Parameter]
-        public string DarkTheme { get; set; } = "Dark";
+        public string DarkTheme { get; set; }
+
+        private string CurrentLightTheme => LightTheme ?? ThemeService.Theme?.ToLowerInvariant() switch
+        {
+            "dark" => "default",
+            "material-dark" => "material",
+            "fluent-dark" => "fluent",
+            "material3-dark" => "material3",
+            "software-dark" => "software",
+            "humanistic-dark" => "humanistic",
+            "standard-dark" => "standard",
+            _ => ThemeService.Theme,
+        };
+
+        private string CurrentDarkTheme => DarkTheme ?? ThemeService.Theme?.ToLowerInvariant() switch
+        {
+            "default" => "dark",
+            "material" => "material-dark",
+            "fluent" => "fluent-dark",
+            "material3" => "material3-dark",
+            "software" => "software-dark",
+            "humanistic" => "humanistic-dark",
+            "standard" => "standard-dark",
+            _ => ThemeService.Theme,
+        };
 
         private bool value;
 
@@ -57,19 +84,19 @@ namespace Radzen.Blazor
 
             ThemeService.ThemeChanged += OnThemeChanged;
 
-            value = ThemeService.Theme != DarkTheme;
+            value = ThemeService.Theme != CurrentDarkTheme;
         }
 
         private void OnThemeChanged(object sender, EventArgs e)
         {
-            value = ThemeService.Theme != DarkTheme;
+            value = ThemeService.Theme != CurrentDarkTheme;
 
             StateHasChanged();
         }
 
         void OnChange(bool value)
         {
-            ThemeService.SetTheme(value ? LightTheme : DarkTheme);
+            ThemeService.SetTheme(value ? CurrentLightTheme : CurrentDarkTheme);
         }
 
         private string Icon => value ? "dark_mode" : "light_mode";

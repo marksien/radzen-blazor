@@ -18,31 +18,30 @@ namespace Radzen.Blazor
         /// Enables WCAG contrast requirements. If set to true additional CSS file will be loaded.
         /// </summary>
         [Parameter]
-        public bool WCAG { get; set; }
-
-        /// <summary>
-        /// Specifies if the theme should be right-to-left.
-        /// </summary>
-        [Parameter]
-        public bool RightToLeft { get; set; }
+        public bool Wcag { get; set; }
 
         private string theme;
 
         private bool wcag;
-        private bool rightToLeft;
 
         private string Href => $"{Path}/{theme}-base.css";
 
         private string WcagHref => $"{Path}/{theme}-wcag.css";
 
-        private string Path => Premium ? $"css" : $"_content/Radzen.Blazor/css";
+        private string Path => Embedded ? $"_content/Radzen.Blazor/css" : "css";
 
-        private bool Premium => theme switch
+        private bool Embedded => theme switch
         {
-            "material3" => true,
-            "fluent" => true,
-            "fluent-dark" => true,
-            "material3-dark" => true,
+            "material" => true,
+            "material-dark" => true,
+            "standard" => true,
+            "standard-dark" => true,
+            "humanistic" => true,
+            "humanistic-dark" => true,
+            "software" => true,
+            "software-dark" => true,
+            "default" => true,
+            "dark" => true,
             _ => false
         };
 
@@ -50,8 +49,7 @@ namespace Radzen.Blazor
         protected override void OnInitialized()
         {
             theme = ThemeService.Theme ?? Theme;
-            wcag = ThemeService.Wcag ?? WCAG;
-            rightToLeft = ThemeService.RightToLeft ?? RightToLeft;
+            wcag = ThemeService.Wcag ?? Wcag;
 
             ThemeService.SetTheme(theme, false);
 
@@ -65,8 +63,7 @@ namespace Radzen.Blazor
         private void OnThemeChanged(object sender, EventArgs e)
         {
             theme = ThemeService.Theme.ToLowerInvariant();
-            wcag = ThemeService.Wcag ?? WCAG;
-            rightToLeft = ThemeService.RightToLeft ?? RightToLeft;
+            wcag = ThemeService.Wcag ?? Wcag;
 
             StateHasChanged();
         }
