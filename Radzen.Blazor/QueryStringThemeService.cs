@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Components.Routing;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
-#if NET7_0_OR_GREATER
 namespace Radzen
 {
     /// <summary>
@@ -35,29 +34,30 @@ namespace Radzen
     /// </summary>
     public class QueryStringThemeService : IDisposable
     {
-        private NavigationManager NavigationManager { get; }
-        private ThemeService ThemeService { get; }
-        private readonly IDisposable registration;
+        private readonly NavigationManager navigationManager;
+        private readonly ThemeService themeService;
 
-        /// <summary>
-        /// Gets or sets the options for the <see cref="QueryStringThemeService" />.
-        /// </summary>
-        public QueryStringThemeServiceOptions Options { get; set; } = new ();
+#if NET7_0_OR_GREATER
+        private readonly IDisposable registration;
+#endif
+        private readonly QueryStringThemeServiceOptions options;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="QueryStringThemeService" /> class.
         /// </summary>
-        public QueryStringThemeService(NavigationManager navigationManager, ThemeService themeService)
+        public QueryStringThemeService(NavigationManager navigationManager, ThemeService themeService, IOptions<QueryStringThemeServiceOptions> options)
         {
-            NavigationManager = navigationManager;
+            this.navigationManager = navigationManager;
 
-            ThemeService = themeService;
+            this.themeService = themeService;
 
-            var state = GetStateFromQueryString(NavigationManager.Uri);
+            this.options = options.Value;
+
+            var state = GetStateFromQueryString(navigationManager.Uri);
 
             if (state.theme != null && RequiresChange(state))
             {
-                ThemeService.SetTheme(new ThemeOptions
+                themeService.SetTheme(new ThemeOptions
                 {
                     Theme = state.theme,
                     Wcag = state.wcag,
@@ -66,22 +66,25 @@ namespace Radzen
                 });
             }
 
-            ThemeService.ThemeChanged += OnThemeChanged;
+            themeService.ThemeChanged += OnThemeChanged;
 
+#if NET7_0_OR_GREATER
             try
             {
-                registration = NavigationManager.RegisterLocationChangingHandler(OnLocationChanging);
+                registration = navigationManager.RegisterLocationChangingHandler(OnLocationChanging);
             }
             catch (NotSupportedException)
             {
                 // HttpNavigationManager does not support that
             }
+#endif
         }
 
         private bool RequiresChange((string theme, bool? wcag, bool? rightToLeft) state) =>
-            !string.Equals(ThemeService.Theme, state.theme, StringComparison.OrdinalIgnoreCase) ||
-            ThemeService.Wcag != state.wcag || ThemeService.RightToLeft != state.rightToLeft;
+            !string.Equals(themeService.Theme, state.theme, StringComparison.OrdinalIgnoreCase) ||
+            themeService.Wcag != state.wcag || themeService.RightToLeft != state.rightToLeft;
 
+#if NET7_0_OR_GREATER
         private ValueTask OnLocationChanging(LocationChangingContext context)
         {
             var state = GetStateFromQueryString(context.TargetLocation);
@@ -90,90 +93,87 @@ namespace Radzen
             {
                 context.PreventNavigation();
 
-                NavigationManager.NavigateTo(GetUriWithStateQueryParameters(context.TargetLocation), replace: true);
+                navigationManager.NavigateTo(GetUriWithStateQueryParameters(context.TargetLocation), replace: true);
             }
 
             return ValueTask.CompletedTask;
         }
+#endif
 
         private (string theme, bool? wcag, bool? rightToLeft) GetStateFromQueryString(string uri)
         {
             var query = HttpUtility.ParseQueryString(new Uri(uri).Query);
 
-            bool? wcag = query.Get(Options.WcagParameter) != null ? query.Get(Options.WcagParameter) == "true" : null;
-            bool? rtl = query.Get(Options.RightToLeftParameter) != null ? query.Get(Options.RightToLeftParameter) == "true" : null;
+            bool? wcag = query.Get(options.WcagParameter) != null ? query.Get(options.WcagParameter) == "true" : null;
+            bool? rtl = query.Get(options.RightToLeftParameter) != null ? query.Get(options.RightToLeftParameter) == "true" : null;
 
-            return (query.Get(Options.ThemeParameter), wcag, rtl);
+            return (query.Get(options.ThemeParameter), wcag, rtl);
         }
 
         private string GetUriWithStateQueryParameters(string uri)
         {
             var parameters = new Dictionary<string, object>
             {
-                { Options.ThemeParameter, ThemeService.Theme.ToLowerInvariant() },
+                { options.ThemeParameter, themeService.Theme.ToLowerInvariant() },
             };
 
-            if (ThemeService.Wcag.HasValue)
+            if (themeService.Wcag.HasValue)
             {
-                parameters.Add(Options.WcagParameter, ThemeService.Wcag.Value ? "true" : "false");
+                parameters.Add(options.WcagParameter, themeService.Wcag.Value ? "true" : "false");
             }
 
-            if (ThemeService.RightToLeft.HasValue)
+            if (themeService.RightToLeft.HasValue)
             {
-                parameters.Add(Options.RightToLeftParameter, ThemeService.RightToLeft.Value ? "true" : "false");
+                parameters.Add(options.RightToLeftParameter, themeService.RightToLeft.Value ? "true" : "false");
             }
 
-            return NavigationManager.GetUriWithQueryParameters(uri, parameters);
+            return navigationManager.GetUriWithQueryParameters(uri, parameters);
         }
 
         private void OnThemeChanged(object sender, EventArgs e)
         {
-            var state = GetStateFromQueryString(NavigationManager.Uri);
+            var state = GetStateFromQueryString(navigationManager.Uri);
 
-            NavigationManager.NavigateTo(GetUriWithStateQueryParameters(NavigationManager.Uri),
-                forceLoad: state.rightToLeft != ThemeService.RightToLeft);
+            navigationManager.NavigateTo(GetUriWithStateQueryParameters(navigationManager.Uri),
+                forceLoad: state.rightToLeft != themeService.RightToLeft);
         }
 
         /// <inheritdoc />
         public void Dispose()
         {
-            ThemeService.ThemeChanged -= OnThemeChanged;
+            themeService.ThemeChanged -= OnThemeChanged;
+
+#if NET7_0_OR_GREATER
             registration?.Dispose();
+#endif
         }
     }
 
     /// <summary>
     /// Extension methods to register the <see cref="QueryStringThemeService" />.
     /// </summary>
-    public static class QueryStringThemeServiceExtensions
+    public static class QueryStringThemeServiceCollectionExtensions
     {
         /// <summary>
         /// Adds the <see cref="QueryStringThemeService" /> to the service collection.
         /// </summary>
-        public static void AddRadzenQueryStringThemeService(this IServiceCollection services)
+        public static IServiceCollection AddRadzenQueryStringThemeService(this IServiceCollection services)
         {
+            services.AddOptions<QueryStringThemeServiceOptions>();
             services.AddScoped<QueryStringThemeService>();
+
+            return services;
         }
 
         /// <summary>
-        /// Adds the <see cref="QueryStringThemeService" /> to the service collection with the specified options.
+        /// Adds the <see cref="QueryStringThemeService" /> to the service collection with the specified condiguration.
         /// </summary>
-        public static void AddRadzenQueryStringThemeService(this IServiceCollection services, QueryStringThemeServiceOptions options)
+        public static IServiceCollection AddRadzenQueryStringThemeService(this IServiceCollection services, Action<QueryStringThemeServiceOptions> configure)
         {
-            services.AddScoped(serviceProvider =>
-            {
-                var navigationManager = serviceProvider.GetRequiredService<NavigationManager>();
-                var themeService = serviceProvider.GetRequiredService<ThemeService>();
-                var queryStringThemeService = new QueryStringThemeService(navigationManager, themeService);
+            services.Configure(configure);
+            services.AddScoped<QueryStringThemeService>();
 
-                if (options != null)
-                {
-                    queryStringThemeService.Options = options;
-                }
-
-                return queryStringThemeService;
-            });
+            return services;
         }
     }
 }
-#endif

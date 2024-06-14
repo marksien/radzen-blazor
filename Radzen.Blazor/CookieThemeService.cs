@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using Microsoft.JSInterop;
 
 namespace Radzen
@@ -34,11 +35,11 @@ namespace Radzen
         /// <summary>
         /// Initializes a new instance of the <see cref="CookieThemeService" /> class.
         /// </summary>
-        public CookieThemeService(IJSRuntime jsRuntime, ThemeService themeService, CookieThemeServiceOptions options = null)
+        public CookieThemeService(IJSRuntime jsRuntime, ThemeService themeService, IOptions<CookieThemeServiceOptions> options)
         {
             this.jsRuntime = jsRuntime;
             this.themeService = themeService;
-            this.options = options ?? new CookieThemeServiceOptions();
+            this.options = options.Value;
 
             themeService.ThemeChanged += OnThemeChanged;
 
@@ -82,27 +83,28 @@ namespace Radzen
     /// <summary>
     /// Extension methods to register the <see cref="CookieThemeService" />.
     /// </summary>
-    public static class CookieThemeServiceExtensions
+    public static class CookieThemeServiceCollectionExtensions
     {
         /// <summary>
         /// Adds the <see cref="CookieThemeService" /> to the service collection.
         /// </summary>
-        public static void AddRadzenCookieThemeService(this IServiceCollection services)
+        public static IServiceCollection AddRadzenCookieThemeService(this IServiceCollection services)
         {
+            services.AddOptions<CookieThemeServiceOptions>();
             services.AddScoped<CookieThemeService>();
+
+            return services;
         }
 
         /// <summary>
-        /// Adds the <see cref="CookieThemeService" /> to the service collection with the specified options.
+        /// Adds the <see cref="CookieThemeService" /> to the service collection with the specified configuration.
         /// </summary>
-        public static void AddRadzenCookieThemeService(this IServiceCollection services, CookieThemeServiceOptions options)
+        public static IServiceCollection AddRadzenCookieThemeService(this IServiceCollection services, Action<CookieThemeServiceOptions> configure)
         {
-            services.AddScoped(serviceProvider =>
-            {
-                var themeService = serviceProvider.GetRequiredService<ThemeService>();
-                var jsRuntime = serviceProvider.GetRequiredService<IJSRuntime>();
-                return new CookieThemeService(jsRuntime, themeService, options ?? new CookieThemeServiceOptions());
-            });
+            services.Configure(configure);
+            services.AddScoped<CookieThemeService>();
+
+            return services;
         }
     }
 }
