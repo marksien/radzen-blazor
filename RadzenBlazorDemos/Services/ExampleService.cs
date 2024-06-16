@@ -28,7 +28,7 @@ namespace RadzenBlazorDemos
             Title = "Get Started | Free UI Components by Radzen",
             Description = "How to get started with the Radzen Blazor Components library.",
             Icon = "&#xe037"
-        },
+        }
         new Example
         {
             Name = "Support",
@@ -41,7 +41,6 @@ namespace RadzenBlazorDemos
         {
             Name = "Accessibility",
             Path = "/accessibility",
-            New = true,
             Title = "Blazor Accessibility | Free UI Components by Radzen",
             Description = "The accessible Radzen Blazor Components library covers highest levels of web accessibility guidelines and recommendations, making you Blazor app compliant with WAI-ARIA, WCAG 2.2, section 508, and keyboard compatibility standards.",
             Icon = "&#xe92c",
@@ -61,6 +60,16 @@ namespace RadzenBlazorDemos
                     Description = "The Radzen Blazor Components package features an array of both free and premium themes, allowing you to choose the style that best suits your project's requirements.",
                     Icon = "&#xe40a",
                     Tags = new[] { "theme", "color", "background", "border", "utility", "css", "var"}
+                },
+                new Example()
+                {
+                    Name = "AppearanceToggle",
+                    Path = "appearance-toggle",
+                    New = true,
+                    Title = "Blazor Themes | Free UI Components by Radzen",
+                    Description = "The AppearanceToggle button allows you to switch between two predefined themes, most commonly light and dark.",
+                    Icon = "&#xe51c",
+                    Tags = new[] { "theme", "light", "dark", "mode", "appearance", "toggle", "switch"}
                 },
                 new Example()
                 {

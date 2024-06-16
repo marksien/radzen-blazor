@@ -7,7 +7,7 @@ namespace Radzen.Blazor
     /// <summary>
     /// Dark or light theme switch. Requires <see cref="ThemeService" /> to be registered in the DI container.
     /// </summary>
-    public partial class RadzenThemeSwitch : RadzenComponent
+    public partial class RadzenAppearanceToggle : RadzenComponent
     {
         [Inject]
         private ThemeService ThemeService { get; set; }
