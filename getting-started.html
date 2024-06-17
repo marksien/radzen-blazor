@@ -1,0 +1,57 @@
+<style>
+  .tabs {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tabs-radio {
+  position: absolute;
+  opacity: 0;
+}
+
+.tabs-label {
+  width: 33%;
+}
+
+.tabs-content {
+  display: none;
+  order:99;
+}
+
+.tabs-radio:checked + .tabs-label + .tabs-content {
+  display: block;
+}
+</style>
+
+<h3>1. Install</h3>
+<p>
+The Radzen Blazor Components are distributed via the <a href="">Radzen.Blazor</a> nuget package.
+</p>
+<p>
+  You can add the nuget package to your Blazor application in one of the following ways:
+</p>
+<ul>
+  <li>Via Visual Studio's Nuget Package Manager <img src="https://blazor.radzen.com/images/nuget-explorer.png"></li>
+  <li>Via command line <code>dotnet add package Radzen.Blazor</code></li>
+  <li>By editing your application's <code>.csproj</code> file and adding a package reference <code>lt;PackageReference Include="Radzen.Blazor" Version="*" /&gt;</code></li>
+</ul>
+
+<div class="tabs">
+  <input class="tabs-radio" name="tabs" checked type="radio" id="tabone">
+  <label class="tabs-label" for="tabone">One</label>
+  <div class="tabs-content">
+    Content for tab one
+  </div>
+  
+  <input class="tabs-radio" name="tabs" type="radio" id="tabtwo">
+  <label class="tabs-label" for="tabtwo">Two</label>
+  <div class="tabs-content">
+    Content for tab two
+  </div>
+  
+  <input class="tabs-radio" name="tabs"  type="radio" id="tabthree">
+  <label class="tabs-label" for="tabthree">Three</label>
+  <div class="tabs-content">
+    Content for tab three
+  </div>
+</html>
