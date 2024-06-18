@@ -103,6 +103,7 @@ $grid-state-transition: var(--rz-transition-all) !default;
 
 $grid-group-header-padding: 0.5rem !default;
 $grid-group-header-gap: 0.5rem !default;
+$grid-group-header-item-color: var(--rz-text-color) !default;
 $grid-group-header-item-background-color: var(--rz-base-background-color) !default;
 $grid-group-header-item-padding-block: 0.5rem !default;
 $grid-group-header-item-padding-inline: 0.5rem !default;
@@ -224,6 +225,7 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
   
   --rz-grid-group-header-padding: #{$grid-group-header-padding};
   --rz-grid-group-header-gap: #{$grid-group-header-gap};
+  --rz-grid-group-header-item-color: #{$grid-group-header-item-color};
   --rz-grid-group-header-item-background-color: #{$grid-group-header-item-background-color};
   --rz-grid-group-header-item-padding-block: #{$grid-group-header-item-padding-block};
   --rz-grid-group-header-item-padding-inline: #{$grid-group-header-item-padding-inline};
@@ -380,6 +382,7 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-align: inherit;
     border-bottom: var(--rz-grid-header-cell-border-bottom);
 
     &:not(:last-child) {
@@ -612,6 +615,10 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
       display: flex;
       align-items: center;
       gap: 0.25rem;
+    }
+
+    .rz-column-footer {
+      color: var(--rz-grid-foot-cell-color);
     }
   }
 
@@ -1304,6 +1311,7 @@ $column-draggable-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.1) !default;
 .rz-group-header-item {
   display: flex;
   align-items: center;
+  color: var(--rz-grid-group-header-item-color);
   background-color: var(--rz-grid-group-header-item-background-color);
   border: var(--rz-grid-group-header-item-border);
   border-radius: var(--rz-grid-group-header-item-border-radius);
