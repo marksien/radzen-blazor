@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 
 namespace Radzen.Blazor
@@ -45,24 +46,46 @@ namespace Radzen.Blazor
             _ => false
         };
 
+        private PersistingComponentStateSubscription persistingSubscription;
+
         /// <inheritdoc />
         protected override void OnInitialized()
         {
-            theme = ThemeService.Theme ?? Theme;
+            theme = ThemeService.Theme ?? GetCurrentTheme();
             wcag = ThemeService.Wcag ?? Wcag;
 
-            ThemeService.SetTheme(theme, false);
+            ThemeService.SetTheme(theme, true);
 
             theme = theme.ToLowerInvariant();
 
             ThemeService.ThemeChanged += OnThemeChanged;
 
+            persistingSubscription = PersistentComponentState.RegisterOnPersisting(PersistTheme);
+
             base.OnInitialized();
+        }
+
+        private string GetCurrentTheme()
+        {
+            if (PersistentComponentState.TryTakeFromJson(nameof(Theme), out string theme))
+            {
+                return theme;
+            }
+
+            return Theme;
+        }
+
+        private Task PersistTheme()
+        {
+            PersistentComponentState.PersistAsJson(nameof(Theme), theme);
+
+            return Task.CompletedTask;
         }
 
         private void OnThemeChanged(object sender, EventArgs e)
         {
             theme = ThemeService.Theme.ToLowerInvariant();
+
             wcag = ThemeService.Wcag ?? Wcag;
 
             StateHasChanged();
@@ -74,6 +97,7 @@ namespace Radzen.Blazor
         public void Dispose()
         {
             ThemeService.ThemeChanged -= OnThemeChanged;
+            persistingSubscription.Dispose();
         }
     }
 }

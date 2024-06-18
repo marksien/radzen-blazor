@@ -58,7 +58,7 @@ namespace Radzen
 
                     return (Key: parts[0], Value: parts[1]);
                 })
-                .FirstOrDefault(x => x.Key == "Theme");
+                .FirstOrDefault(x => x.Key == options.Name);
 
                 var theme = themeCookie?.Value;
 
