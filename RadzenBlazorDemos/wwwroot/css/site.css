@@ -354,12 +354,13 @@ ul code {
 p code,
 ul code,
 pre {
-    padding: 0 0.25rem;
+    padding: 0 0.5rem;
     font-size: 0.8125em !important;
     line-height: 1.25rem;
-    background: var(--rz-base-100);
-    color: var(--rz-base-800);
-    border-radius: 0.25rem;
+    background: var(--rz-base);
+    color: var(--rz-on-base);
+    border-radius: var(--rz-border-radius);
+    letter-spacing: -0.04em;
 }
 
 .rz-sidebar {
