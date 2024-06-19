@@ -72,7 +72,7 @@ namespace Radzen
             }
         }
 
-        private void OnThemeChanged(object sender, EventArgs e)
+        private void OnThemeChanged()
         {
             var expiration = DateTime.Now.Add(options.Duration);
 

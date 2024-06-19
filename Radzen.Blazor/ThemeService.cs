@@ -369,7 +369,7 @@ namespace Radzen
         /// <summary>
         /// Raised when the theme changes.
         /// </summary>
-        public event EventHandler ThemeChanged;
+        public event Action ThemeChanged;
 
         /// <summary>
         /// Changes the current theme.
@@ -412,7 +412,7 @@ namespace Radzen
 
             if (requiresChange && options.TriggerChange)
             {
-                ThemeChanged?.Invoke(this, EventArgs.Empty);
+                ThemeChanged?.Invoke();
             }
         }
 

@@ -82,7 +82,7 @@ namespace Radzen.Blazor
             return Task.CompletedTask;
         }
 
-        private void OnThemeChanged(object sender, EventArgs e)
+        private void OnThemeChanged()
         {
             theme = ThemeService.Theme.ToLowerInvariant();
 

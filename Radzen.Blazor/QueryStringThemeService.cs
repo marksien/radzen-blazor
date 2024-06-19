@@ -130,7 +130,7 @@ namespace Radzen
             return navigationManager.GetUriWithQueryParameters(uri, parameters);
         }
 
-        private void OnThemeChanged(object sender, EventArgs e)
+        private void OnThemeChanged()
         {
             var state = GetStateFromQueryString(navigationManager.Uri);
 

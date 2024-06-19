@@ -87,7 +87,7 @@ namespace Radzen.Blazor
             value = ThemeService.Theme != CurrentDarkTheme;
         }
 
-        private void OnThemeChanged(object sender, EventArgs e)
+        private void OnThemeChanged()
         {
             value = ThemeService.Theme != CurrentDarkTheme;
 
