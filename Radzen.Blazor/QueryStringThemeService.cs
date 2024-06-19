@@ -81,7 +81,7 @@ namespace Radzen
         }
 
         private bool RequiresChange((string theme, bool? wcag, bool? rightToLeft) state) =>
-            !string.Equals(themeService.Theme, state.theme, StringComparison.OrdinalIgnoreCase) ||
+            (state.theme != null && !string.Equals(themeService.Theme, state.theme, StringComparison.OrdinalIgnoreCase)) ||
             themeService.Wcag != state.wcag || themeService.RightToLeft != state.rightToLeft;
 
 #if NET7_0_OR_GREATER

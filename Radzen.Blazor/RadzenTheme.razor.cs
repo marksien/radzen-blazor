@@ -54,7 +54,7 @@ namespace Radzen.Blazor
             theme = ThemeService.Theme ?? GetCurrentTheme();
             wcag = ThemeService.Wcag ?? Wcag;
 
-            ThemeService.SetTheme(theme, true);
+            ThemeService.SetTheme(theme, false);
 
             theme = theme.ToLowerInvariant();
 
