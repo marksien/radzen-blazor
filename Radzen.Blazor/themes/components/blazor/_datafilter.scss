@@ -6,19 +6,6 @@ $datafilter-item-path-height: calc(#{$datafilter-item-padding-block} + (var(--rz
 $datafilter-item-path-border: var(--rz-border-normal);
 $datafilter-item-path-border-radius: calc(2 * var(--rz-border-radius));
 
-// DataFilter CSS variables
-
-:root {
-    --rz-datafilter-item-padding-block: #{$datafilter-item-padding-block};
-    --rz-datafilter-item-padding-inline-start: #{$datafilter-item-padding-inline-start};
-    --rz-datafilter-item-indentation: #{$datafilter-item-indentation};
-    --rz-datafilter-item-path-width: #{$datafilter-item-path-width};
-    --rz-datafilter-item-path-height: #{$datafilter-item-path-height};
-    --rz-datafilter-item-path-border: #{$datafilter-item-path-border};
-    --rz-datafilter-item-path-border-radius: #{$datafilter-item-path-border-radius};
-}
-
-
 .rz-datafilter {
     box-sizing: border-box;
     display: flex;

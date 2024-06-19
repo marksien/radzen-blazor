@@ -6,16 +6,6 @@ $chip-gap: 0.5rem !default;
 $chip-border-radius: var(--rz-border-radius) !default;
 $chip-font-size: 0.875rem !default;
 
-:root {
-  --rz-chip-background-color: #{$chip-background-color};
-  --rz-chip-color: #{$chip-color};
-  --rz-chip-padding-block: #{$chip-padding-block};
-  --rz-chip-padding-inline: #{$chip-padding-inline};
-  --rz-chip-gap: #{$chip-gap};
-  --rz-chip-border-radius: #{$chip-border-radius};
-  --rz-chip-font-size: #{$chip-font-size};
-}
-
 @mixin chip() {
   .rz-chip {
     box-sizing: border-box;

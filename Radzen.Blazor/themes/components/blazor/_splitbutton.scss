@@ -4,15 +4,6 @@ $splitbutton-background-color: var(--rz-primary) !default;
 $splitbutton-border-radius: var(--rz-border-radius) !default;
 $splitbutton-sizes: xs, sm, md, lg;
 
-// SplitButton CSS variables
-
-:root {
-  --rz-splitbutton-menu-shadow: #{$splitbutton-menu-shadow};
-  --rz-splitbutton-menu-min-width: #{$splitbutton-menu-min-width};
-  --rz-splitbutton-background-color: #{$splitbutton-background-color};
-  --rz-splitbutton-border-radius: #{$splitbutton-border-radius};
-}
-
 .rz-splitbutton {
   box-sizing: border-box;
   display: inline-flex;

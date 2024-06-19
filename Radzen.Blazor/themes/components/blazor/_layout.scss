@@ -1,11 +1,5 @@
 $layout-background-color: var(--rz-body-background-color) !default;
 
-// Layout CSS variables
-
-:root {
-  --rz-layout-background-color: #{$layout-background-color};
-}
-
 /* Radzen Blazor Layout reset styles */
 
 :root:has(.rz-layout) {

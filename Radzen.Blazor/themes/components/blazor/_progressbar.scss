@@ -8,20 +8,6 @@ $progressbar-circular-stroke-width: 2px !default;
 $progressbar-circular-value-stroke-width: 3px !default;
 $progressbar-circular-value-endpoint: round !default;
 
-// ProgressBar CSS variables
-
-:root {
-  --rz-progressbar-background-color: #{$progressbar-background-color};
-  --rz-progressbar-font-size: #{$progressbar-font-size};
-  --rz-progressbar-height: #{$progressbar-height};
-  --rz-progressbar-border-radius: #{$progressbar-border-radius};
-  --rz-progressbar-value-background-color: #{$progressbar-value-background-color};
-  --rz-progressbar-value-transition: #{$progressbar-value-transition};
-  --rz-progressbar-circular-stroke-width:  #{$progressbar-circular-stroke-width};
-  --rz-progressbar-circular-value-stroke-width:  #{$progressbar-circular-value-stroke-width};
-  --rz-progressbar-circular-value-endpoint:  #{$progressbar-circular-value-endpoint};
-}
-
 $progressbar-base-styles: () !default;
 $progressbar-base-styles: map-merge(
   (

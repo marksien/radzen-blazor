@@ -74,16 +74,6 @@ $text: (
   overline:   (font-size: 0.625rem, line-height: normal,  font-weight: 400, letter-spacing: 1.5px, text-transform: uppercase, color: var(--rz-text-color), margin-block-start: 0, margin-block-end: 0.5rem)
 ) !default;
 
-// Text CSS variables
-
-:root {
-  @each $element, $property in $text {
-    @each $key, $value in $property {
-      --rz-text-#{$element}-#{$key}: #{$value};
-    }
-  }
-}
-
 @each $element, $property in $text {
   .rz-text-#{$element} {
     font-family: var(--rz-text-font-family);
@@ -214,11 +204,6 @@ $link-color: var(--rz-secondary) !default;
 // Text selection
 $rz-text-selection-background-color: var(--rz-primary-lighter) !default;
 $rz-text-selection-color: inherit !default;
-
-:root {
-  --rz-text-selection-background-color: #{$rz-text-selection-background-color};
-  --rz-text-selection-color: #{$rz-text-selection-color};
-}
 
 @if $base == false {
   ::selection {

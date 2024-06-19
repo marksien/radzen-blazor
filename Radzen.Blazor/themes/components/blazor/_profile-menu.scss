@@ -5,7 +5,6 @@ $profile-menu-padding-block: 0.625rem !default;
 $profile-menu-padding-inline: 1rem !default;
 $profile-menu-border-radius: var(--rz-border-radius) !default;
 $profile-menu-toggle-button-color: var(--rz-secondary) !default;
-
 $profile-menu-item-hover-background-color: var(--rz-secondary) !default;
 $profile-menu-item-focus-outline: var(--rz-outline-focus) !default;
 $profile-menu-item-focus-outline-offset: calc(-1 * var(--rz-outline-width)) !default;
@@ -13,26 +12,6 @@ $profile-menu-item-icon-width: var(--rz-icon-size) !default;
 $profile-menu-item-icon-height: $profile-menu-item-icon-width !default;
 $profile-menu-item-icon-font-size: $profile-menu-item-icon-height !default;
 $profile-menu-item-icon-margin-inline: 0 0.5rem !default;
-
-// ProfileMenu CSS variables
-
-:root {
-  --rz-profile-menu-background-color: #{$profile-menu-background-color};
-  --rz-profile-menu-top-item-background-color: #{$profile-menu-top-item-background-color};
-  --rz-profile-menu-border: #{$profile-menu-border};
-  --rz-profile-menu-padding-block: #{$profile-menu-padding-block};
-  --rz-profile-menu-padding-inline: #{$profile-menu-padding-inline};
-  --rz-profile-menu-border-radius: #{$profile-menu-border-radius};
-  --rz-profile-menu-toggle-button-color: #{$profile-menu-toggle-button-color};
-  
-  --rz-profile-menu-item-hover-background-color: #{$profile-menu-item-hover-background-color};
-  --rz-profile-menu-item-focus-outline: #{$profile-menu-item-focus-outline};
-  --rz-profile-menu-item-focus-outline-offset: #{$profile-menu-item-focus-outline-offset};
-  --rz-profile-menu-item-icon-width: #{$profile-menu-item-icon-width};
-  --rz-profile-menu-item-icon-height: #{$profile-menu-item-icon-height};
-  --rz-profile-menu-item-icon-font-size: #{$profile-menu-item-icon-font-size};
-  --rz-profile-menu-item-icon-margin-inline: #{$profile-menu-item-icon-margin-inline};
-}
 
 ul.rz-profile-menu {
   box-sizing: border-box;

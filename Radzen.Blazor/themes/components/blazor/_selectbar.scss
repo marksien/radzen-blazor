@@ -1,26 +1,12 @@
 $selectbar-background-color: var(--rz-base-backgorund-color) !default;
 $selectbar-color: var(--rz-text-color) !default;
 $selectbar-border: var(--rz-border-normal) !default;
-
 $selectbar-selected-background-color: var(--rz-secondary) !default;
 $selectbar-selected-color: var(--rz-on-secondary) !default;
 $selectbar-selected-border: var(--rz-border-secondary) !default;
 $selectbar-border-radius: var(--rz-border-radius) !default;
 
 $selectbar-sizes: xs, sm, md, lg;
-
-// SelectBar CSS variables
-
-:root {
-  --rz-selectbar-background-color: #{$selectbar-background-color};
-  --rz-selectbar-color: #{$selectbar-color};
-  --rz-selectbar-border: #{$selectbar-border};
-  
-  --rz-selectbar-selected-background-color: #{$selectbar-selected-background-color};
-  --rz-selectbar-selected-color: #{$selectbar-selected-color};
-  --rz-selectbar-selected-border: #{$selectbar-selected-border};
-  --rz-selectbar-border-radius: #{$selectbar-border-radius};
-}
 
 .rz-selectbutton {
   box-sizing: border-box;

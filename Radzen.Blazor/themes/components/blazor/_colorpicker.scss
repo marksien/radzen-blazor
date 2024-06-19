@@ -6,54 +6,19 @@ $colorpicker-panel-max-width: 20rem !default;
 $colorpicker-saturation-height: 200px !default;
 $colorpicker-focus-outline: var(--rz-outline-focus) !default;
 $colorpicker-focus-outline-offset: var(--rz-outline-offset) !default;
-
 $colorpicker-value-border-radius: var(--rz-border-radius) !default;
-
 $colorpicker-items-gap: 0.5rem !default;
 $colorpicker-item-size: 1.25rem !default;
 $colorpicker-item-border-radius: var(--rz-border-radius) !default;
 $colorpicker-item-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.25) 0px 0px 4px inset !default;
-
 $colorpicker-handle-size: 12px !default;
 $colorpicker-handle-border: 2px solid var(--rz-white) !default;
 $colorpicker-handle-shadow: var(--rz-white) 0px 0px 0px 1px, rgba(0, 0, 0, 0.3) 0px 0px 1px 1px inset, rgba(0, 0, 0, 0.4) 0px 0px 1px 2px !default;
-
 $colorpicker-hex-input-padding: 0.25rem 0.5rem !default;
 $colorpicker-hex-input-height: 2rem !default;
 $colorpicker-rgba-input-padding: 0.25rem 0.5rem !default;
 $colorpicker-rgba-input-height: 2rem !default;
 $colorpicker-input-labels-color: var(--rz-text-tertiary-color) !default;
-
-// ColorPicker CSS variables
-
-:root {
-  --rz-colorpicker-panel-border: #{$colorpicker-panel-border};
-  --rz-colorpicker-panel-background-color: #{$colorpicker-panel-background-color};
-  --rz-colorpicker-panel-shadow: #{$colorpicker-panel-shadow};
-  --rz-colorpicker-panel-padding: #{$colorpicker-panel-padding};
-  --rz-colorpicker-panel-max-width: #{$colorpicker-panel-max-width};
-  --rz-colorpicker-saturation-height: #{$colorpicker-saturation-height};
-  --rz-colorpicker-focus-outline: #{$colorpicker-focus-outline};
-  --rz-colorpicker-focus-outline-offset: #{$colorpicker-focus-outline-offset};
-
-  --rz-colorpicker-value-border-radius: #{$colorpicker-value-border-radius};
-
-  --rz-colorpicker-items-gap: #{$colorpicker-items-gap};
-  --rz-colorpicker-item-size: #{$colorpicker-item-size};
-  --rz-colorpicker-item-border-radius: #{$colorpicker-item-border-radius};
-  --rz-colorpicker-item-shadow: #{$colorpicker-item-shadow};
-
-  --rz-colorpicker-handle-size: #{$colorpicker-handle-size};
-  --rz-colorpicker-handle-border: #{$colorpicker-handle-border};
-  --rz-colorpicker-handle-shadow: #{$colorpicker-handle-shadow};
-
-  --rz-colorpicker-hex-input-padding: #{$colorpicker-hex-input-padding};
-  --rz-colorpicker-hex-input-height: #{$colorpicker-hex-input-height};
-  --rz-colorpicker-rgba-input-padding: #{$colorpicker-rgba-input-padding};
-  --rz-colorpicker-rgba-input-height: #{$colorpicker-rgba-input-height};
-  --rz-colorpicker-input-labels-color: #{$colorpicker-input-labels-color};
-}
-
 
 .rz-colorpicker {
   display: inline-flex;

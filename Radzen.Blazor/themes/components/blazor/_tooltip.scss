@@ -5,17 +5,6 @@ $tooltip-padding: 0.25rem 0.5rem !default;
 $tooltip-border-radius: var(--rz-border-radius) !default;
 $tooltip-font-size: var(--rz-body-font-size) !default;
 
-// Tooltip CSS variables
-
-:root {
-  --rz-tooltip-background-color: #{$tooltip-background-color};
-  --rz-tooltip-color: #{$tooltip-color};
-  --rz-tooltip-shadow: #{$tooltip-shadow};
-  --rz-tooltip-padding: #{$tooltip-padding};
-  --rz-tooltip-border-radius: #{$tooltip-border-radius};
-  --rz-tooltip-font-size: #{$tooltip-font-size};
-}
-
 .rz-tooltip {
   box-sizing: border-box;
   position: absolute;

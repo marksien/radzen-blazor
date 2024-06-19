@@ -2,9 +2,7 @@ $pager-background-color: var(--rz-base-background-color) !default;
 $pager-padding: 0.5rem !default;
 $pager-gap: 0.5rem !default;
 $pager-border: $grid-border !default;
-
 $pager-button-border-radius: var(--rz-border-radius) !default;
-
 $pager-numeric-button-background-color: var(--rz-base-200) !default;
 $pager-numeric-button-color: var(--rz-text-color) !default;
 $pager-numeric-button-border: 1px solid transparent !default;
@@ -16,63 +14,19 @@ $pager-numeric-button-selected-color: var(--rz-primary) !default;
 $pager-numeric-button-selected-border: var(--rz-border-base-200) !default;
 $pager-numeric-button-selected-padding: $pager-numeric-button-padding; // Selected button padding should be the same as the default one
 $pager-numeric-button-min-width: 2.25rem !default;
-
 $pager-back-button-background-color: var(--rz-base-200) !default;
 $pager-back-button-color: var(--rz-text-color) !default;
 $pager-back-button-hover-background-color: $pager-back-button-background-color !default;
 $pager-back-button-hover-color: $pager-back-button-color !default;
-
 $pager-next-button-background-color: var(--rz-base-200) !default;
 $pager-next-button-color: var(--rz-text-color) !default;
 $pager-next-button-hover-background-color: $pager-next-button-background-color !default;
 $pager-next-button-hover-color: $pager-next-button-color !default;
-
 $pager-dropdown-width: 80px !default;
-
 $pager-summary-padding: 1.25rem !default;
 $pager-summary-font-size: var(--rz-body-font-size) !default;
 $pager-summary-color: var(--rz-text-secondary-color) !default;
-
 $pager-button-size: "%button-md" !default;
-
-// Pager CSS variables
-
-:root {
-  --rz-pager-background-color: #{$pager-background-color};
-  --rz-pager-padding: #{$pager-padding};
-  --rz-pager-gap: #{$pager-gap};
-  --rz-pager-border: #{$pager-border};
-
-  --rz-pager-button-border-radius: #{$pager-button-border-radius};
-
-  --rz-pager-numeric-button-background-color: #{$pager-numeric-button-background-color};
-  --rz-pager-numeric-button-color: #{$pager-numeric-button-color};
-  --rz-pager-numeric-button-border: #{$pager-numeric-button-border};
-  --rz-pager-numeric-button-hover-background-color: #{$pager-numeric-button-hover-background-color};
-  --rz-pager-numeric-button-hover-color: #{$pager-numeric-button-hover-color};
-  --rz-pager-numeric-button-padding: #{$pager-numeric-button-padding};
-  --rz-pager-numeric-button-selected-background-color: #{$pager-numeric-button-selected-background-color};
-  --rz-pager-numeric-button-selected-color: #{$pager-numeric-button-selected-color};
-  --rz-pager-numeric-button-selected-border: #{$pager-numeric-button-selected-border};
-  --rz-pager-numeric-button-selected-padding: #{$pager-numeric-button-selected-padding};
-  --rz-pager-numeric-button-min-width: #{$pager-numeric-button-min-width};
-
-  --rz-pager-back-button-background-color: #{$pager-back-button-background-color};
-  --rz-pager-back-button-color: #{$pager-back-button-color};
-  --rz-pager-back-button-hover-background-color: #{$pager-back-button-hover-background-color};
-  --rz-pager-back-button-hover-color: #{$pager-back-button-hover-color};
-
-  --rz-pager-next-button-background-color: #{$pager-next-button-background-color};
-  --rz-pager-next-button-color: #{$pager-next-button-color};
-  --rz-pager-next-button-hover-background-color: #{$pager-next-button-hover-background-color};
-  --rz-pager-next-button-hover-color: #{$pager-next-button-hover-color};
-
-  --rz-pager-dropdown-width: #{$pager-dropdown-width};
-
-  --rz-pager-summary-padding: #{$pager-summary-padding};
-  --rz-pager-summary-font-size: #{$pager-summary-font-size};
-  --rz-pager-summary-color: #{$pager-summary-color};
-}
 
 .rz-pager {
   box-sizing: border-box;

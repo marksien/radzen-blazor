@@ -3,15 +3,6 @@ $lookup-panel-padding: 1rem !default;
 $lookup-search-gap: 0.5rem !default;
 $lookup-search-margin-bottom: 0.5rem !default;
 
-// Lookup CSS variables
-
-:root {
-  --rz-lookup-panel-background-color: #{$lookup-panel-background-color};
-  --rz-lookup-panel-padding: #{$lookup-panel-padding};
-  --rz-lookup-search-gap: #{$lookup-search-gap};
-  --rz-lookup-search-margin-bottom: #{$lookup-search-margin-bottom};
-}
-
 .rz-lookup-panel {
   background-color: var(--rz-lookup-panel-background-color);
   padding: var(--rz-lookup-panel-padding);

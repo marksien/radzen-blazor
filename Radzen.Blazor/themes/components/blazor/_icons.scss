@@ -5,15 +5,6 @@ $rz-icon-weight: inherit !default;
 $rz-icon-grade: 0 !default;
 $rz-icon-optical-size: 48 !default;
 
-:root {
-  --rz-icon-font-family: #{$rz-icon-font-family};
-  --rz-icon-size: #{$rz-icon-size};
-  --rz-icon-fill: #{$rz-icon-fill};
-  --rz-icon-weight: #{$rz-icon-weight};
-  --rz-icon-grade: #{$rz-icon-grade};
-  --rz-icon-optical-size: #{$rz-icon-optical-size};
-}
-
 %rzi, .rzi {
   box-sizing: border-box;
   font-family: var(--rz-icon-font-family);

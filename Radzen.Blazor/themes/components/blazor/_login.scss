@@ -6,18 +6,6 @@ $login-register-margin-inline: 0 !default;
 $login-register-button-margin-block: 0 !default;
 $login-register-button-margin-inline: 0 !default;
 
-// Login CSS variables
-
-:root {
-  --rz-login-register-background-color: #{$login-register-background-color};
-  --rz-login-register-padding-block: #{$login-register-padding-block};
-  --rz-login-register-padding-inline: #{$login-register-padding-inline};
-  --rz-login-register-margin-block: #{$login-register-margin-block};
-  --rz-login-register-margin-inline: #{$login-register-margin-inline};
-  --rz-login-register-button-margin-block: #{$login-register-button-margin-block};
-  --rz-login-register-button-margin-inline: #{$login-register-button-margin-inline};
-}
-
 .rz-login {
   box-sizing: border-box;
   display: flex;

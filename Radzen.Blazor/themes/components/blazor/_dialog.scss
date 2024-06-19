@@ -19,31 +19,6 @@ $dialog-border-radius: var(--rz-border-radius) !default;
 $dialog-mask-zindex: 1000 !default;
 $dialog-zindex: 1001 !default;
 
-// Dialog CSS variables
-
-:root {
-  --rz-dialog-background-color: #{$dialog-background-color};
-  --rz-dialog-shadow: #{$dialog-shadow};
-  --rz-dialog-title-background-color: #{$dialog-title-background-color};
-  --rz-dialog-title-border: #{$dialog-title-border};
-  --rz-dialog-title-padding-block: #{$dialog-title-padding-block};
-  --rz-dialog-title-padding-inline: #{$dialog-title-padding-inline};
-  --rz-dialog-title-font-size: #{$dialog-title-font-size};
-  --rz-dialog-title-line-height: #{$dialog-title-line-height};
-  --rz-dialog-title-font-weight: #{$dialog-title-font-weight};
-  --rz-dialog-title-letter-spacing: #{$dialog-title-letter-spacing};
-  --rz-dialog-title-color: #{$dialog-title-color};
-  --rz-dialog-close-font-size: #{$dialog-close-font-size};
-  --rz-dialog-close-color: #{$dialog-close-color};
-  --rz-dialog-close-hover-color: #{$dialog-close-hover-color};
-  --rz-dialog-close-vertical-align: #{$dialog-close-vertical-align};
-  --rz-dialog-content-padding: #{$dialog-content-padding};
-  --rz-dialog-mask-background-color: #{$dialog-mask-background-color};
-  --rz-dialog-border-radius: #{$dialog-border-radius};
-  --rz-dialog-mask-zindex: #{$dialog-mask-zindex};
-  --rz-dialog-zindex: #{$dialog-zindex};
-}
-
 .rz-dialog-wrapper {
   box-sizing: border-box;
   display: flex;

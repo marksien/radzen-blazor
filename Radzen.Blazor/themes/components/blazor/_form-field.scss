@@ -30,41 +30,6 @@ $form-field-label-floating-top: -0.625rem !default;
 $form-field-label-floating-background-color: var(--rz-input-background-color) !default;
 $form-field-helper-padding: 0 0.5rem !default;
 
-:root {
-    --rz-form-field-margin-block: #{$form-field-margin-block};
-    --rz-form-field-margin-inline: #{$form-field-margin-inline};
-    --rz-form-field-start-end-padding-block: #{$form-field-start-end-padding-block};
-    --rz-form-field-start-end-padding-inline: #{$form-field-start-end-padding-inline};
-    --rz-form-field-filled-height: #{$form-field-filled-height};
-    --rz-form-field-filled-padding-block: #{$form-field-filled-padding-block};
-    --rz-form-field-filled-padding-inline: #{$form-field-filled-padding-inline};
-    --rz-form-field-filled-numeric-padding-block: #{$form-field-filled-numeric-padding-block};
-    --rz-form-field-filled-numeric-padding-inline: #{$form-field-filled-numeric-padding-inline};
-    --rz-form-field-filled-background-color: #{$form-field-filled-background-color};
-    --rz-form-field-filled-hover-background-color: #{$form-field-filled-hover-background-color};
-    --rz-form-field-filled-border: #{$form-field-filled-border};
-    --rz-form-field-filled-hover-border: #{$form-field-filled-hover-border};
-    --rz-form-field-filled-focus-border: #{$form-field-filled-focus-border};
-    --rz-form-field-filled-border-radius: #{$form-field-filled-border-radius};
-    --rz-form-field-filled-label-floating-top: #{$form-field-filled-label-floating-top};
-    --rz-form-field-filled-hover-shadow: #{$form-field-filled-hover-shadow};
-    --rz-form-field-filled-focus-shadow: #{$form-field-filled-focus-shadow};
-    --rz-form-field-filled-underline-display: #{$form-field-filled-underline-display};
-    --rz-form-field-shadow: #{$form-field-shadow};
-    --rz-form-field-hover-shadow: #{$form-field-hover-shadow};
-    --rz-form-field-focus-shadow: #{$form-field-focus-shadow};
-    --rz-form-field-label-color: #{$form-field-label-color};
-    --rz-form-field-label-focus-color: #{$form-field-label-focus-color};
-    --rz-form-field-label-padding: #{$form-field-label-padding};
-    --rz-form-field-text-label-padding: #{$form-field-text-label-padding};
-    --rz-form-field-label-inset-inline-start: #{$form-field-label-inset-inline-start};
-    --rz-form-field-label-textarea-top: #{$form-field-label-textarea-top};
-    --rz-form-field-label-floating-top: #{$form-field-label-floating-top};
-    --rz-form-field-label-floating-background-color: #{$form-field-label-floating-background-color};
-    --rz-form-field-helper-padding: #{$form-field-helper-padding};
-}
-
-
 .rz-form-field-helper {
     padding: var(--rz-form-field-helper-padding);
 }

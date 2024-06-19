@@ -4,16 +4,6 @@ $splitter-bar-background-color: var(--rz-base-200) !default;
 $splitter-bar-background-color-active: var(--rz-secondary) !default;
 $splitter-bar-hover-opacity: 1 !default;
 
-// Splitter CSS variables
-
-:root {
-    --rz-splitter-bar-color: #{$splitter-bar-color};
-    --rz-splitter-bar-color-active: #{$splitter-bar-color-active};
-    --rz-splitter-bar-background-color: #{$splitter-bar-background-color};
-    --rz-splitter-bar-background-color-active: #{$splitter-bar-background-color-active};
-    --rz-splitter-bar-hover-opacity: #{$splitter-bar-hover-opacity};
-}
-
 .rz-splitter {
     box-sizing: border-box;
     display: flex;

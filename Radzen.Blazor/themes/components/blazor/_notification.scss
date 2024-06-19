@@ -4,7 +4,6 @@ $notification-icon-margin: 0 !default;
 $notification-container-background-color: transparent !default;
 $notification-shadow: none !default;
 $notification-border-radius: var(--rz-border-radius) !default;
-
 $notification-success-color: var(--rz-on-success) !default;
 $notification-success-background-color: var(--rz-success) !default;
 $notification-success-icon-color: $notification-success-color !default;
@@ -17,30 +16,6 @@ $notification-error-icon-color: $notification-error-color !default;
 $notification-info-color: var(--rz-on-info) !default;
 $notification-info-background-color: var(--rz-info) !default;
 $notification-info-icon-color: $notification-info-color !default;
-
-// Notification CSS variables
-
-:root {
-  --rz-notification-padding: #{$notification-padding};
-  --rz-notification-gap: #{$notification-gap};
-  --rz-notification-icon-margin: #{$notification-icon-margin};
-  --rz-notification-container-background-color: #{$notification-container-background-color};
-  --rz-notification-shadow: #{$notification-shadow};
-  --rz-notification-border-radius: #{$notification-border-radius};
-
-  --rz-notification-success-color: #{$notification-success-color};
-  --rz-notification-success-background-color: #{$notification-success-background-color};
-  --rz-notification-success-icon-color: #{$notification-success-icon-color};
-  --rz-notification-warning-color: #{$notification-warning-color};
-  --rz-notification-warning-background-color: #{$notification-warning-background-color};
-  --rz-notification-warning-icon-color: #{$notification-warning-icon-color};
-  --rz-notification-error-color: #{$notification-error-color};
-  --rz-notification-error-background-color: #{$notification-error-background-color};
-  --rz-notification-error-icon-color: #{$notification-error-icon-color};
-  --rz-notification-info-color: #{$notification-info-color};
-  --rz-notification-info-background-color: #{$notification-info-background-color};
-  --rz-notification-info-icon-color: #{$notification-info-icon-color};
-}
 
 .rz-notification {
   box-sizing: border-box;

@@ -3,7 +3,6 @@ $datepicker-trigger-icon-height: $datepicker-trigger-icon-width !default;
 $datepicker-trigger-icon-color: var(--rz-input-value-color) !default;
 $datepicker-trigger-icon-hover-color: var(--rz-input-value-color) !default;
 $datepicker-line-height: 1.25rem !default;
-
 $datepicker-popup-width: 20rem !default;
 $datepicker-panel-border: var(--rz-border-normal) !default;
 $datepicker-panel-background-color: var(--rz-base-background-color) !default;
@@ -18,7 +17,6 @@ $datepicker-footer-padding: 0 1rem !default;
 $datepicker-footer-line-height: 2.8125rem !default;
 $datepicker-prev-next-icon-size: 1.5rem !default;
 $datepicker-prev-next-button-border-radius: var(--rz-border-radius) !default;
-
 $datepicker-calendar-padding-block: 0 !default;
 $datepicker-calendar-padding-inline: 0 !default;
 $datepicker-calendar-item-padding: 0.5rem 0.875rem !default;
@@ -36,18 +34,14 @@ $datepicker-calendar-selected-hover-background-color: var(--rz-secondary) !defau
 $datepicker-calendar-border: var(--rz-border-base-100) !default;
 $datepicker-calendar-border-radius: 0 !default;
 $datepicker-calendar-transition: var(--rz-transition-all) !default;
-
 $datepicker-calendar-today-color: var(--rz-secondary) !default;
 $datepicker-calendar-today-background-color: transparent !default;
 $datepicker-calendar-today-box-shadow: none !default;
 $datepicker-calendar-today-border-radius: var(--rz-datepicker-calendar-border-radius) !default;
-
 $datepicker-month-dropdown-width: 8rem !default;
 $datepicker-year-dropdown-width: 4.5rem !default;
-
 $datepicker-focus-outline: var(--rz-outline-focus) !default;
 $datepicker-focus-outline-offset: calc(-1 * var(--rz-outline-width)) !default;
-
 $timepicker-color: var(--rz-text-color) !default;
 $timepicker-background-color: var(--rz-base-200)!default;
 $timepicker-padding-block: 0.5rem !default;
@@ -63,76 +57,6 @@ $timepicker-gap: 0.5rem !default;
 $timepicker-separator-color: var(--rz-text-color) !default;
 $timepicker-separator-margin: 0 0.5rem !default;
 $timepicker-border: none !default;
-
-// DatePicker CSS variables
-
-:root {
-  --rz-datepicker-trigger-icon-width: #{$datepicker-trigger-icon-width};
-  --rz-datepicker-trigger-icon-height: #{$datepicker-trigger-icon-height};
-  --rz-datepicker-line-height: #{$datepicker-line-height};
-  --rz-datepicker-trigger-icon-color: #{$datepicker-trigger-icon-color};
-  --rz-datepicker-trigger-icon-hover-color: #{$datepicker-trigger-icon-hover-color};
-
-  --rz-datepicker-popup-width: #{$datepicker-popup-width};
-  --rz-datepicker-panel-border: #{$datepicker-panel-border};
-  --rz-datepicker-panel-background-color: #{$datepicker-panel-background-color};
-  --rz-datepicker-panel-shadow: #{$datepicker-panel-shadow};
-  --rz-datepicker-panel-margin: #{$datepicker-panel-margin};
-  --rz-datepicker-header-color: #{$datepicker-header-color};
-  --rz-datepicker-header-background-color: #{$datepicker-header-background-color};
-  --rz-datepicker-header-padding-block: #{$datepicker-header-padding-block};
-  --rz-datepicker-header-padding-inline: #{$datepicker-header-padding-inline};
-  --rz-datepicker-header-border: #{$datepicker-header-border};
-  --rz-datepicker-footer-padding: #{$datepicker-footer-padding};
-  --rz-datepicker-footer-line-height: #{$datepicker-footer-line-height};
-  --rz-datepicker-prev-next-icon-size: #{$datepicker-prev-next-icon-size};
-  --rz-datepicker-prev-next-button-border-radius: #{$datepicker-prev-next-button-border-radius};
-
-  --rz-datepicker-calendar-padding-block: #{$datepicker-calendar-padding-block};
-  --rz-datepicker-calendar-padding-inline: #{$datepicker-calendar-padding-inline};
-  --rz-datepicker-calendar-item-padding: #{$datepicker-calendar-item-padding};
-  --rz-datepicker-calendar-header-font-size: #{$datepicker-calendar-header-font-size};
-  --rz-datepicker-calendar-header-text-transform: #{$datepicker-calendar-header-text-transform};
-  --rz-datepicker-calendar-header-color: #{$datepicker-calendar-header-color};
-  --rz-datepicker-calendar-font-size: #{$datepicker-calendar-font-size};
-  --rz-datepicker-calendar-color: #{$datepicker-calendar-color};
-  --rz-datepicker-calendar-hover-color: #{$datepicker-calendar-hover-color};
-  --rz-datepicker-calendar-hover-background-color: #{$datepicker-calendar-hover-background-color};
-  --rz-datepicker-calendar-selected-color: #{$datepicker-calendar-selected-color};
-  --rz-datepicker-calendar-selected-background-color: #{$datepicker-calendar-selected-background-color};
-  --rz-datepicker-calendar-selected-hover-color: #{$datepicker-calendar-selected-hover-color};
-  --rz-datepicker-calendar-selected-hover-background-color: #{$datepicker-calendar-selected-hover-background-color};
-  --rz-datepicker-calendar-border: #{$datepicker-calendar-border};
-  --rz-datepicker-calendar-border-radius: #{$datepicker-calendar-border-radius};
-  --rz-datepicker-calendar-transition: #{$datepicker-calendar-transition};
-
-  --rz-datepicker-calendar-today-color: #{$datepicker-calendar-today-color};
-  --rz-datepicker-calendar-today-background-color: #{$datepicker-calendar-today-background-color};
-  --rz-datepicker-calendar-today-box-shadow: #{$datepicker-calendar-today-box-shadow};
-  --rz-datepicker-calendar-today-border-radius: #{$datepicker-calendar-today-border-radius};
-
-  --rz-datepicker-month-dropdown-width: #{$datepicker-month-dropdown-width};
-  --rz-datepicker-year-dropdown-width: #{$datepicker-year-dropdown-width};
-
-  --rz-datepicker-focus-outline: #{$datepicker-focus-outline};
-  --rz-datepicker-focus-outline-offset: #{$datepicker-focus-outline-offset};
-
-  --rz-timepicker-color: #{$timepicker-color};
-  --rz-timepicker-background-color: #{$timepicker-background-color};
-  --rz-timepicker-separator-color: #{$timepicker-separator-color};
-  --rz-timepicker-padding-block: #{$timepicker-padding-block};
-  --rz-timepicker-padding-inline: #{$timepicker-padding-inline};
-  --rz-timepicker-hour-padding: #{$timepicker-hour-padding};
-  --rz-timepicker-button-color: #{$timepicker-button-color};
-  --rz-timepicker-button-background-color: #{$timepicker-button-background-color};
-  --rz-timepicker-button-width: #{$timepicker-button-width};
-  --rz-timepicker-button-height: #{$timepicker-button-height};
-  --rz-timepicker-button-border-radius: #{$timepicker-button-border-radius};
-  --rz-timepicker-button-padding: #{$timepicker-button-padding};
-  --rz-timepicker-gap: #{$timepicker-gap};
-  --rz-timepicker-separator-margin: #{$timepicker-separator-margin};
-  --rz-timepicker-border: #{$timepicker-border};
-}
 
 .rz-datepicker {
   display: inline-block;

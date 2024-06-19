@@ -1,5 +1,4 @@
 $tree-background-color: var(--rz-base-background-color) !default;
-
 $tree-node-padding-block: 0.25rem !default;
 $tree-node-padding-inline: 0.25rem !default;
 $tree-node-selected-background-color: var(--rz-secondary) !default;
@@ -17,28 +16,6 @@ $tree-node-toggle-hover-color: var(--rz-text-color) !default;
 $tree-icon-right: 'arrow_right' !default;
 $tree-icon-down: 'arrow_drop_down' !default;
 $tree-transition: var(--rz-transition-all), width 0, height 0 !default;
-
-// Tree CSS variables
-
-:root {
-  --rz-tree-background-color: #{$tree-background-color};
-  
-  --rz-tree-node-padding-block: #{$tree-node-padding-block};
-  --rz-tree-node-padding-inline: #{$tree-node-padding-inline};
-  --rz-tree-node-selected-background-color: #{$tree-node-selected-background-color};
-  --rz-tree-node-selected-color: #{$tree-node-selected-color};
-  --rz-tree-node-selected-border-radius: #{$tree-node-selected-border-radius};
-  --rz-tree-node-margin-block: #{$tree-node-margin-block};
-  --rz-tree-node-margin-inline: #{$tree-node-margin-inline};
-  --rz-tree-node-hover-background-color: #{$tree-node-hover-background-color};
-  --rz-tree-node-hover-color: #{$tree-node-hover-color};
-  --rz-tree-node-focus-outline: #{$tree-node-focus-outline};
-  --rz-tree-node-focus-outline-offset: #{$tree-node-focus-outline-offset};
-  --rz-tree-node-toggle-width: #{$tree-node-toggle-width};
-  --rz-tree-node-toggle-color: #{$tree-node-toggle-color};
-  --rz-tree-node-toggle-hover-color: #{$tree-node-toggle-hover-color};
-  --rz-tree-transition: #{$tree-transition};
-}
 
 .rz-tree {
   box-sizing: border-box;

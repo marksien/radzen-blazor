@@ -4,16 +4,6 @@ $sidebar-border-right: var(--rz-border-normal) !default;
 $sidebar-background-color: var(--rz-base-800) !default;
 $sidebar-color: var(--rz-white) !default;
 
-// Sidebar CSS variables
-
-:root {
-  --rz-sidebar-z: #{$sidebar-z};
-  --rz-sidebar-width: #{$sidebar-width};
-  --rz-sidebar-border-right: #{$sidebar-border-right};
-  --rz-sidebar-background-color: #{$sidebar-background-color};
-  --rz-sidebar-color: #{$sidebar-color};
-}
-
 .rz-sidebar {
   background-color: var(--rz-sidebar-background-color);
   color: var(--rz-sidebar-color);

@@ -10,22 +10,6 @@ $numeric-button-color: var(--rz-on-secondary) !default;
 $numeric-button-disabled-background-color: var(--rz-base-300) !default;
 $numeric-button-disabled-color: var(--rz-text-disabled-color) !default;
 
-// Numeric CSS variables
-
-:root {
-  --rz-numeric-line-height: #{$numeric-line-height};
-  --rz-numeric-input-padding-block: #{$numeric-input-padding-block};
-  --rz-numeric-input-padding-inline: #{$numeric-input-padding-inline};
-  --rz-numeric-button-width: #{$numeric-button-width};
-  --rz-numeric-button-height: #{$numeric-button-height};
-  --rz-numeric-button-offset: #{$numeric-button-offset};
-  --rz-numeric-button-border-radius: #{$numeric-button-border-radius};
-  --rz-numeric-button-background-color: #{$numeric-button-background-color};
-  --rz-numeric-button-disabled-background-color: #{$numeric-button-disabled-background-color};
-  --rz-numeric-button-disabled-color: #{$numeric-button-disabled-color};
-  --rz-numeric-button-color: #{$numeric-button-color};
-}
-
 .rz-numeric {
   display: inline-block;
   position: relative;
