@@ -81,6 +81,7 @@ input {
   height: var(--rz-input-height);
   line-height: var(--rz-input-line-height);
   color: var(--rz-input-value-color);
+  font-family: inherit;
   font-size: var(--rz-input-font-size);
   transition: var(--rz-input-transition);
   outline: none;
