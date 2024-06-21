@@ -54,7 +54,7 @@ namespace Radzen.Blazor
             theme = ThemeService.Theme ?? GetCurrentTheme();
             wcag = ThemeService.Wcag ?? Wcag;
 
-            ThemeService.SetTheme(theme, false);
+            ThemeService.SetTheme(theme, true);
 
             theme = theme.ToLowerInvariant();
 
@@ -84,11 +84,28 @@ namespace Radzen.Blazor
 
         private void OnThemeChanged()
         {
-            theme = ThemeService.Theme.ToLowerInvariant();
+            var requiresChange = false;
 
-            wcag = ThemeService.Wcag ?? Wcag;
+            var newTheme = ThemeService.Theme.ToLowerInvariant();
 
-            StateHasChanged();
+            if (theme != newTheme)
+            {
+                theme = newTheme;
+                requiresChange = true;
+            }
+
+            var newWcag = ThemeService.Wcag ?? Wcag;
+
+            if (wcag != newWcag)
+            {
+                wcag = newWcag;
+                requiresChange = true;
+            }
+
+            if (requiresChange)
+            {
+                StateHasChanged();
+            }
         }
 
         /// <summary>
