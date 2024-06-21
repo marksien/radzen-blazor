@@ -1,5 +1,6 @@
 ﻿@page "/changelog"
 
+<div class="changelog">
 <RadzenText TextStyle="TextStyle.H2" TagName="TagName.H1" class="rz-pt-8">
     Radzen Blazor Components v5 Changelog 
 </RadzenText>
@@ -190,6 +191,7 @@
             </li>
         </ul>
     </li>
+    <li><RadzenBadge BadgeStyle="BadgeStyle.Info" Shade="Shade.Lighter" Text="New" /> <code>--rz-scheduler-highlight-background-color</code> - Use it to highlight working hours in day view, or today in calendar view.</li>
 </ul>
 
 <RadzenText Anchor="changelog#tree" TextStyle="TextStyle.H5" TagName="TagName.H2" class="rz-pt-4">
@@ -226,6 +228,17 @@
     <li><RadzenBadge BadgeStyle="BadgeStyle.Danger" Shade="Shade.Lighter" Text="Breaking" /> Renamed spacing related CSS variables and updated values respectively:
         <ul>
             <li><RadzenBadge BadgeStyle="BadgeStyle.Base" Text="Updated" /> <code>--rz-dialog-title-padding</code> is now <code>--rz-dialog-title-padding-block</code> and <code>--rz-dialog-title-padding-inline</code></li>
+        </ul>
+    </li>
+</ul>
+
+<RadzenText Anchor="changelog#sidebar" TextStyle="TextStyle.H5" TagName="TagName.H2" class="rz-pt-4">
+    Sidebar
+</RadzenText>
+<ul>
+    <li><RadzenBadge BadgeStyle="BadgeStyle.Danger" Shade="Shade.Lighter" Text="Breaking" /> Renamed direction related CSS variables and updated values respectively:
+        <ul>
+            <li><RadzenBadge BadgeStyle="BadgeStyle.Base" Text="Updated" /> <code>--rz-sidebar-border-right</code> is now <code>--rz-sidebar-border-inline-end</code></li>
         </ul>
     </li>
 </ul>
@@ -603,9 +616,10 @@
 <ul>
     <li><RadzenBadge BadgeStyle="BadgeStyle.Info" Shade="Shade.Lighter" Text="Update" /> Removed <code>$progressbar-styles</code> SCSS map and use <code>$severity-styles-map</code> and <code>$progressbar-base-styles</code> to generate CSS for ProgressBar styles.</li>
 </ul>
+</div>
 
 <style>
-    li {
+    .changelog li {
         margin-block: 0.25rem;
     }
 </style>
