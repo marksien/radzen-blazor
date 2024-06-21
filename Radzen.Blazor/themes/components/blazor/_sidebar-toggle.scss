@@ -12,7 +12,8 @@ $sidebar-toggle-focus-outline: var(--rz-outline-focus) !default;
 $sidebar-toggle-focus-outline-offset: calc(-1 * var(--rz-outline-offset)) !default;
 
 .rz-sidebar-toggle {
-  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
   border: none;
   padding: var(--rz-sidebar-toggle-padding);
   margin-inline-end: var(--rz-sidebar-toggle-margin-inline-end);
