@@ -6,7 +6,7 @@
     <RadzenStack Orientation="Orientation.Vertical" Gap="0.5rem" @attributes=@Attributes>
         <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" JustifyContent="JustifyContent.SpaceBetween">
             <RadzenText TextStyle="TextStyle.Subtitle1" TagName="TagName.P" Class="rz-m-0">Console log</RadzenText>
-            <RadzenButton Click=@OnClearClick Text="Clear console" ButtonStyle="ButtonStyle.Light" Variant="Variant.Flat" Size="ButtonSize.Small" />
+            <RadzenButton Click=@OnClearClick Text="Clear console" ButtonStyle="ButtonStyle.Base" Variant="Variant.Flat" Size="ButtonSize.Small" />
         </RadzenStack>
         <RadzenStack Orientation="Orientation.Vertical" Gap="0" ID="event-console" Class="rz-pt-1" Style="border-top: var(--rz-grid-cell-border); min-height: 2rem; max-height: 12rem; overflow: auto;">
             @foreach (var message in messages)
