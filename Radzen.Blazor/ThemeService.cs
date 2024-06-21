@@ -232,6 +232,23 @@ namespace Radzen
                 SeriesC = "#f68769"
             },
             new Theme {
+                Text = "Standard Dark",
+                Value = "standard-dark",
+                Primary = "#3871ff",
+                Secondary = "#2a3c68",
+                Base = "#19191a",
+                Selection = "rgba(56, 113, 255, 0.2)",
+                SelectionText = "#88aaff",
+                Content = "#242527",
+                TitleText = "#ffffff",
+                ContentText = "#eaebec",
+                ButtonRadius = "2",
+                CardRadius = "4",
+                SeriesA = "#376df5",
+                SeriesB = "#64dfdf",
+                SeriesC = "#f68769"
+            },
+            new Theme {
                 Text = "Default",
                 Value = "default",
                 Primary = "#ff6d41",
