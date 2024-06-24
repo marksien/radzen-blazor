@@ -359,8 +359,12 @@ pre {
     line-height: 1.25rem;
     background: var(--rz-base);
     color: var(--rz-on-base);
-    border-radius: var(--rz-border-radius);
+    border-radius: var(--rz-card-border-radius);
     letter-spacing: -0.04em;
+}
+
+pre {
+    overflow-x: auto;
 }
 
 .rz-sidebar {
